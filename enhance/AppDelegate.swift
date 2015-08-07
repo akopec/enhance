@@ -21,11 +21,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame:UIScreen.mainScreen().bounds)
 
         if PHPhotoLibrary.authorizationStatus() == .Authorized {
-            
+            var nav = UINavigationController(rootViewController: PickerViewController())
+            window!.rootViewController = nav
         } else {
             var onboard = OnboardViewController()
             window!.rootViewController = onboard
         }
+        
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = kEnhanceTealColor
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSFontAttributeName: UIFont(name: "GTWalsheimPro-BoldOblique", size: 22.0)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()
+        ]
         
         window!.makeKeyAndVisible()
         

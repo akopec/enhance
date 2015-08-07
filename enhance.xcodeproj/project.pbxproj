@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F1648511B753D9B0036E577 /* EnhanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1648501B753D9B0036E577 /* EnhanceViewController.swift */; };
+		1F1FBCCD1B74475C001AD000 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */; };
 		1F65B18E1B7282F100B5EE74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65B18D1B7282F100B5EE74 /* AppDelegate.swift */; };
-		1F65B1901B7282F100B5EE74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65B18F1B7282F100B5EE74 /* ViewController.swift */; };
 		1F65B1951B7282F100B5EE74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F65B1941B7282F100B5EE74 /* Images.xcassets */; };
 		1F65B1B01B72887600B5EE74 /* OnboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65B1AF1B72887600B5EE74 /* OnboardViewController.swift */; };
 		1F65B1B21B7288C600B5EE74 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65B1B11B7288C600B5EE74 /* Config.swift */; };
@@ -19,10 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F1648501B753D9B0036E577 /* EnhanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnhanceViewController.swift; path = Controllers/EnhanceViewController.swift; sourceTree = "<group>"; };
+		1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewController.swift; path = Controllers/PickerViewController.swift; sourceTree = "<group>"; };
 		1F65B1881B7282F100B5EE74 /* enhance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = enhance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F65B18C1B7282F100B5EE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F65B18D1B7282F100B5EE74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F65B18F1B7282F100B5EE74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F65B1941B7282F100B5EE74 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1F65B1A21B7282F100B5EE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F65B1A31B7282F100B5EE74 /* enhanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enhanceTests.swift; sourceTree = "<group>"; };
@@ -72,7 +74,6 @@
 				1F65B1AE1B72870100B5EE74 /* Views */,
 				1F65B1AD1B7286FB00B5EE74 /* Controllers */,
 				1F65B18D1B7282F100B5EE74 /* AppDelegate.swift */,
-				1F65B18F1B7282F100B5EE74 /* ViewController.swift */,
 				1F65B1941B7282F100B5EE74 /* Images.xcassets */,
 				1F65B18B1B7282F100B5EE74 /* Supporting Files */,
 				1F65B1B11B7288C600B5EE74 /* Config.swift */,
@@ -111,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				1F65B1AF1B72887600B5EE74 /* OnboardViewController.swift */,
+				1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */,
+				1F1648501B753D9B0036E577 /* EnhanceViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -193,8 +196,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F65B1901B7282F100B5EE74 /* ViewController.swift in Sources */,
+				1F1FBCCD1B74475C001AD000 /* PickerViewController.swift in Sources */,
 				1F65B1B21B7288C600B5EE74 /* Config.swift in Sources */,
+				1F1648511B753D9B0036E577 /* EnhanceViewController.swift in Sources */,
 				1F65B18E1B7282F100B5EE74 /* AppDelegate.swift in Sources */,
 				1F65B1B01B72887600B5EE74 /* OnboardViewController.swift in Sources */,
 			);
@@ -331,6 +335,7 @@
 				1F65B1A91B7282F100B5EE74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
