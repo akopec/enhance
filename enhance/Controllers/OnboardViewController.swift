@@ -38,7 +38,7 @@ class OnboardViewController: UIViewController, UIScrollViewDelegate {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 0
-        var attrString = NSMutableAttributedString(string: "Zoom,\nEnhance!")
+        let attrString = NSMutableAttributedString(string: "Zoom,\nEnhance!")
         attrString.addAttribute(NSParagraphStyleAttributeName, value:paragraphStyle, range:NSMakeRange(0, attrString.length))
 
         landingTitle.attributedText = attrString
@@ -47,7 +47,7 @@ class OnboardViewController: UIViewController, UIScrollViewDelegate {
         let landingDesc = UILabel(frame: CGRectMake(25.5, 275.0, 270.0, 110.0))
         let descParagraphStyle = NSMutableParagraphStyle()
         descParagraphStyle.lineSpacing = 13
-        var descAttrString = NSMutableAttributedString(string: "Zoom in on stuff.\nMake a GIF of it.\nBurn your friends.")
+        let descAttrString = NSMutableAttributedString(string: "Zoom in on stuff.\nMake a GIF of it.\nBurn your friends.")
         descAttrString.addAttribute(NSParagraphStyleAttributeName, value:descParagraphStyle, range:NSMakeRange(0, descAttrString.length))
         landingDesc.attributedText = descAttrString
         landingDesc.font = UIFont(name: "GTWalsheimPro-BoldOblique", size: 23.5)
@@ -75,7 +75,7 @@ class OnboardViewController: UIViewController, UIScrollViewDelegate {
         permissionsView.addSubview(film)
         
         let permissionsText = UILabel(frame: CGRectMake(32.0, 570.0/2.0, kScreenWidth - 64.0, 130.0))
-        var permAttrString = NSMutableAttributedString(string: "Zoom, Enhance!")
+        let permAttrString = NSMutableAttributedString(string: "Zoom, Enhance!")
         permAttrString.addAttribute(NSFontAttributeName, value: UIFont(name: "GTWalsheimPro-BoldOblique", size: 22.0)!, range: NSMakeRange(0, permAttrString.length))
         permAttrString.appendAttributedString(NSAttributedString(string: " needs access to your camera roll otherwise it’s literally completely useless.", attributes: [NSFontAttributeName: UIFont(name: "GTWalsheimPro", size: 22.0)!]))
 
@@ -108,16 +108,35 @@ class OnboardViewController: UIViewController, UIScrollViewDelegate {
         permissionsView.addSubview(permButton)
         
         scrollView.addSubview(permissionsView)
-        
         scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "next"))
-        
     }
     
     func askPermissions() {
-        var photoLib = PHPhotoLibrary.sharedPhotoLibrary()
-        
         PHPhotoLibrary.requestAuthorization { (status) -> Void in
-            println(status.rawValue)
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                UIView.animateWithDuration(1.0, animations: { () -> Void in
+                    self.view.alpha = 0.0
+                    self.view.transform = CGAffineTransformMakeScale(0.33, 0.33)
+                    
+                    }) { (success) -> Void in
+                        let nav = UINavigationController(rootViewController: PickerViewController())
+                        self.view.window!.rootViewController = nav
+                        self.view.removeFromSuperview()
+                        
+                        nav.viewControllers[0].view.alpha = 0.0
+                        nav.viewControllers[0].view.transform = CGAffineTransformMakeScale(0.4, 0.4)
+
+                        UIView.animateWithDuration(0.3) { () -> Void in
+                            nav.viewControllers[0].view.alpha = 1.0
+                            nav.viewControllers[0].view.transform = CGAffineTransformMakeScale(1.0, 1.0)
+
+                        }
+
+                }
+
+            })
+
         }
     }
     
@@ -127,7 +146,7 @@ class OnboardViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         
  

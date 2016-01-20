@@ -22,13 +22,10 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
-
-        
     }
     
     func clearImage() {
-        for v in self.contentView.subviews as! [UIView] {
+        for v in self.contentView.subviews {
             v.removeFromSuperview()
         }
     }
@@ -39,19 +36,16 @@ class PhotoCollectionViewCell: UICollectionViewCell {
             PHCachingImageManager.defaultManager().cancelImageRequest(Int32(tag))
         }
 
-        println(kImageSize)
         let opt = PHImageRequestOptions()
         opt.resizeMode = .Exact
-        opt.version = .Original
+        opt.version = .Unadjusted
         tag = Int(PHCachingImageManager.defaultManager().requestImageForAsset(asset, targetSize: kImageDubSize, contentMode: .AspectFill, options: opt) { (image, stuff) -> Void in
             self.tag = 0
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 self.clearImage()
-                var iv = UIImageView(image: image)
+                let iv = UIImageView(image: image)
                 iv.frame = CGRectMake(0, 0, kImageSize.width, kImageSize.height)
                 self.contentView.addSubview(iv)
-                println(image)
-                println(stuff)
             })
 
             
@@ -62,17 +56,12 @@ class PhotoCollectionViewCell: UICollectionViewCell {
 class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     var collectionView: UICollectionView!
-    var results: PHFetchResult!
+    var results: PHFetchResult?
     var currentEnhance: EnhanceViewController?
 
     override func loadView() {
         super.loadView()
-        
-        var opt = PHFetchOptions()
-        opt.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        opt.predicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.Image.rawValue)
-        results = PHAsset.fetchAssetsWithOptions(opt)
-        
+  
         self.title = "Zoom, Enhance!"
         if let nav = self.navigationController {
             nav.navigationBar.barStyle = .BlackTranslucent
@@ -89,6 +78,18 @@ class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout
         collectionView.delegate = self
         collectionView.registerClass(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: "PhotoCollectionViewCell")
         self.view.addSubview(collectionView)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reload", name: "DidBecomeActive", object: nil)
+
+        self.reload()
+    }
+    
+    func reload() {
+        let opt = PHFetchOptions()
+        opt.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        opt.predicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.Image.rawValue)
+        results = PHAsset.fetchAssetsWithOptions(opt)
+        self.collectionView.reloadData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -106,13 +107,17 @@ class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return results.count
+        if results == nil {
+            return 0
+        }
+        
+        return results!.count
     }
 
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath) as! PhotoCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath) as! PhotoCollectionViewCell
         
-        cell.asset = results[indexPath.row] as! PHAsset
+        cell.asset = results![indexPath.row] as! PHAsset
         cell.updateCell()
 
         return cell
@@ -120,25 +125,27 @@ class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     
-        var cell = self.collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
+        let cell = self.collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
         
         let opt = PHImageRequestOptions()
         opt.resizeMode = .Exact
-        opt.version = .Original
+        opt.version = .Unadjusted
         opt.synchronous = true
+
+        let startFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y - collectionView.contentOffset.y, cell.frame.width, cell.frame.height)
         
-        let size = CGSizeMake(CGFloat(cell.asset.pixelWidth), CGFloat(cell.asset.pixelHeight))
-        PHImageManager.defaultManager().requestImageForAsset(cell.asset, targetSize: size, contentMode: .AspectFill, options: opt) { (image, stuff) -> Void in
+        PHImageManager.defaultManager().requestImageDataForAsset(cell.asset, options: opt) { (data, title, orientation, meta) -> Void in
             
-            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
+            let img = UIImage(data: data!)
             self.currentEnhance = EnhanceViewController()
-            self.currentEnhance!.image = image
+            self.currentEnhance!.startFrame = startFrame
+            self.currentEnhance!.image = img
             self.view.window!.addSubview(self.currentEnhance!.view)
-            println(image)
-            println(stuff)
+            self.currentEnhance!.nav = self.navigationController
+            self.currentEnhance!.show()
+
+
         }
-        
-        
     }
     
 }

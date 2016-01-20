@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		1F1648511B753D9B0036E577 /* EnhanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1648501B753D9B0036E577 /* EnhanceViewController.swift */; };
+		1F1CDBBF1C45563400176120 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CDBBE1C45563400176120 /* GoogleService-Info.plist */; };
+		1F1CDBC11C45564C00176120 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBC01C45564C00176120 /* libGoogleAnalyticsServices.a */; };
+		1F1CDBCF1C4557D500176120 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBCE1C4557D500176120 /* libsqlite3.tbd */; };
+		1F1CDBD11C45582900176120 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBD01C45582900176120 /* SystemConfiguration.framework */; };
+		1F1CDBD31C45582E00176120 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBD21C45582E00176120 /* Security.framework */; };
+		1F1CDBD51C45583E00176120 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBD41C45583E00176120 /* CoreData.framework */; };
 		1F1FBCCD1B74475C001AD000 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */; };
 		1F65B18E1B7282F100B5EE74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F65B18D1B7282F100B5EE74 /* AppDelegate.swift */; };
 		1F65B1951B7282F100B5EE74 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F65B1941B7282F100B5EE74 /* Images.xcassets */; };
@@ -17,10 +23,33 @@
 		1F65B1B61B72934100B5EE74 /* GTWalsheimPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1F65B1B51B72934100B5EE74 /* GTWalsheimPro.otf */; };
 		1F65B1BA1B729C5C00B5EE74 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F65B1B91B729C5C00B5EE74 /* AssetsLibrary.framework */; };
 		1F65B1BC1B729CCD00B5EE74 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F65B1BB1B729CCD00B5EE74 /* Photos.framework */; };
+		1F9914881C2C5C37008FE00E /* Enhancer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9914871C2C5C37008FE00E /* Enhancer.swift */; };
+		1F99148A1C2CE2F1008FE00E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9914891C2CE2F1008FE00E /* Utils.swift */; };
+		1F99148C1C2CEE56008FE00E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F99148B1C2CEE56008FE00E /* ImageIO.framework */; };
+		1F99148E1C2CEF81008FE00E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F99148D1C2CEF81008FE00E /* MobileCoreServices.framework */; };
+		1FC884C41C320451008B721A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FC884C31C320451008B721A /* AVFoundation.framework */; };
+		1FE69F461C30D41200408A64 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE69F451C30D41200408A64 /* UIImage+Gif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F1648501B753D9B0036E577 /* EnhanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnhanceViewController.swift; path = Controllers/EnhanceViewController.swift; sourceTree = "<group>"; };
+		1F1CDBBE1C45563400176120 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1F1CDBC01C45564C00176120 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		1F1CDBC31C45565600176120 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		1F1CDBC41C45565600176120 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		1F1CDBC51C45565600176120 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		1F1CDBC61C45565600176120 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		1F1CDBC71C45565600176120 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		1F1CDBC81C45565600176120 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		1F1CDBC91C45565600176120 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		1F1CDBCA1C45565600176120 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		1F1CDBCB1C45565600176120 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		1F1CDBCC1C45565600176120 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		1F1CDBCD1C45569F00176120 /* obj-bridging-header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "obj-bridging-header.h"; sourceTree = "<group>"; };
+		1F1CDBCE1C4557D500176120 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		1F1CDBD01C45582900176120 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1F1CDBD21C45582E00176120 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1F1CDBD41C45583E00176120 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PickerViewController.swift; path = Controllers/PickerViewController.swift; sourceTree = "<group>"; };
 		1F65B1881B7282F100B5EE74 /* enhance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = enhance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F65B18C1B7282F100B5EE74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +63,15 @@
 		1F65B1B51B72934100B5EE74 /* GTWalsheimPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTWalsheimPro.otf; sourceTree = "<group>"; };
 		1F65B1B91B729C5C00B5EE74 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		1F65B1BB1B729CCD00B5EE74 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		1F9914871C2C5C37008FE00E /* Enhancer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enhancer.swift; sourceTree = "<group>"; };
+		1F9914891C2CE2F1008FE00E /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		1F99148B1C2CEE56008FE00E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1F99148D1C2CEF81008FE00E /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1FC884C31C320451008B721A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1FE69F451C30D41200408A64 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		38B303597E3B4270C7120078 /* Pods-enhance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-enhance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-enhance/Pods-enhance.debug.xcconfig"; sourceTree = "<group>"; };
+		486DE2C5D8D0B726C6F76E13 /* libPods-enhance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-enhance.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB57CBCF6D5012F859B266B9 /* Pods-enhance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-enhance.release.xcconfig"; path = "Pods/Target Support Files/Pods-enhance/Pods-enhance.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,22 +79,75 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1CDBD51C45583E00176120 /* CoreData.framework in Frameworks */,
+				1F1CDBD31C45582E00176120 /* Security.framework in Frameworks */,
+				1F1CDBD11C45582900176120 /* SystemConfiguration.framework in Frameworks */,
+				1F1CDBCF1C4557D500176120 /* libsqlite3.tbd in Frameworks */,
+				1FC884C41C320451008B721A /* AVFoundation.framework in Frameworks */,
+				1F99148E1C2CEF81008FE00E /* MobileCoreServices.framework in Frameworks */,
+				1F99148C1C2CEE56008FE00E /* ImageIO.framework in Frameworks */,
 				1F65B1BC1B729CCD00B5EE74 /* Photos.framework in Frameworks */,
 				1F65B1BA1B729C5C00B5EE74 /* AssetsLibrary.framework in Frameworks */,
+				1F1CDBC11C45564C00176120 /* libGoogleAnalyticsServices.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1708D0A55D7BFE10D0CF841A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CDBD41C45583E00176120 /* CoreData.framework */,
+				1F1CDBD21C45582E00176120 /* Security.framework */,
+				1F1CDBD01C45582900176120 /* SystemConfiguration.framework */,
+				1F1CDBCE1C4557D500176120 /* libsqlite3.tbd */,
+				486DE2C5D8D0B726C6F76E13 /* libPods-enhance.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F1CDBC21C45565600176120 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CDBC31C45565600176120 /* GAI.h */,
+				1F1CDBC41C45565600176120 /* GAIDictionaryBuilder.h */,
+				1F1CDBC51C45565600176120 /* GAIEcommerceFields.h */,
+				1F1CDBC61C45565600176120 /* GAIEcommerceProduct.h */,
+				1F1CDBC71C45565600176120 /* GAIEcommerceProductAction.h */,
+				1F1CDBC81C45565600176120 /* GAIEcommercePromotion.h */,
+				1F1CDBC91C45565600176120 /* GAIFields.h */,
+				1F1CDBCA1C45565600176120 /* GAILogger.h */,
+				1F1CDBCB1C45565600176120 /* GAITrackedViewController.h */,
+				1F1CDBCC1C45565600176120 /* GAITracker.h */,
+			);
+			name = GoogleAnalytics;
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1F3439981C28B4E20093EAC1 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				1F1CDBC21C45565600176120 /* GoogleAnalytics */,
+				1F1CDBC01C45564C00176120 /* libGoogleAnalyticsServices.a */,
+				1FC884C31C320451008B721A /* AVFoundation.framework */,
+				1FE69F451C30D41200408A64 /* UIImage+Gif.swift */,
+				1F99148D1C2CEF81008FE00E /* MobileCoreServices.framework */,
+				1F99148B1C2CEE56008FE00E /* ImageIO.framework */,
+				1F65B1BB1B729CCD00B5EE74 /* Photos.framework */,
+				1F65B1B91B729C5C00B5EE74 /* AssetsLibrary.framework */,
+			);
+			name = External;
+			sourceTree = "<group>";
+		};
 		1F65B17F1B7282F100B5EE74 = {
 			isa = PBXGroup;
 			children = (
-				1F65B1BB1B729CCD00B5EE74 /* Photos.framework */,
-				1F65B1B91B729C5C00B5EE74 /* AssetsLibrary.framework */,
 				1F65B18A1B7282F100B5EE74 /* enhance */,
 				1F65B1A01B7282F100B5EE74 /* enhanceTests */,
 				1F65B1891B7282F100B5EE74 /* Products */,
+				681012FCAC6D71EC47DB01DF /* Pods */,
+				1708D0A55D7BFE10D0CF841A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,8 +166,10 @@
 				1F65B1AD1B7286FB00B5EE74 /* Controllers */,
 				1F65B18D1B7282F100B5EE74 /* AppDelegate.swift */,
 				1F65B1941B7282F100B5EE74 /* Images.xcassets */,
+				1F3439981C28B4E20093EAC1 /* External */,
 				1F65B18B1B7282F100B5EE74 /* Supporting Files */,
 				1F65B1B11B7288C600B5EE74 /* Config.swift */,
+				1F9914891C2CE2F1008FE00E /* Utils.swift */,
 			);
 			path = enhance;
 			sourceTree = "<group>";
@@ -84,9 +177,11 @@
 		1F65B18B1B7282F100B5EE74 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1F1CDBBE1C45563400176120 /* GoogleService-Info.plist */,
 				1F65B1B51B72934100B5EE74 /* GTWalsheimPro.otf */,
 				1F65B1B31B728CBB00B5EE74 /* GTWalsheimPro-BoldOblique.otf */,
 				1F65B18C1B7282F100B5EE74 /* Info.plist */,
+				1F1CDBCD1C45569F00176120 /* obj-bridging-header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -114,6 +209,7 @@
 				1F65B1AF1B72887600B5EE74 /* OnboardViewController.swift */,
 				1F1FBCCC1B74475C001AD000 /* PickerViewController.swift */,
 				1F1648501B753D9B0036E577 /* EnhanceViewController.swift */,
+				1F9914871C2C5C37008FE00E /* Enhancer.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -123,6 +219,15 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		681012FCAC6D71EC47DB01DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				38B303597E3B4270C7120078 /* Pods-enhance.debug.xcconfig */,
+				FB57CBCF6D5012F859B266B9 /* Pods-enhance.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +256,9 @@
 		1F65B1801B7282F100B5EE74 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jeff Hodsdon";
 				TargetAttributes = {
 					1F65B1871B7282F100B5EE74 = {
@@ -184,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F65B1B61B72934100B5EE74 /* GTWalsheimPro.otf in Resources */,
+				1F1CDBBF1C45563400176120 /* GoogleService-Info.plist in Resources */,
 				1F65B1B41B728DBA00B5EE74 /* GTWalsheimPro-BoldOblique.otf in Resources */,
 				1F65B1951B7282F100B5EE74 /* Images.xcassets in Resources */,
 			);
@@ -199,8 +307,11 @@
 				1F1FBCCD1B74475C001AD000 /* PickerViewController.swift in Sources */,
 				1F65B1B21B7288C600B5EE74 /* Config.swift in Sources */,
 				1F1648511B753D9B0036E577 /* EnhanceViewController.swift in Sources */,
+				1F99148A1C2CE2F1008FE00E /* Utils.swift in Sources */,
 				1F65B18E1B7282F100B5EE74 /* AppDelegate.swift in Sources */,
 				1F65B1B01B72887600B5EE74 /* OnboardViewController.swift in Sources */,
+				1FE69F461C30D41200408A64 /* UIImage+Gif.swift in Sources */,
+				1F9914881C2C5C37008FE00E /* Enhancer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +339,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -269,7 +381,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -299,7 +411,14 @@
 				INFOPLIST_FILE = enhance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/enhance",
+				);
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hodsdon.enhance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "enhance/obj-bridging-header.h";
 			};
 			name = Debug;
 		};
@@ -308,11 +427,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				INFOPLIST_FILE = enhance/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/enhance",
+				);
+				OTHER_LDFLAGS = "-lz";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hodsdon.enhance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "enhance/obj-bridging-header.h";
 			};
 			name = Release;
 		};
