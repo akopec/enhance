@@ -131,14 +131,11 @@ class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout
         opt.resizeMode = .Exact
         opt.version = .Unadjusted
         opt.synchronous = true
-
-        let startFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y - collectionView.contentOffset.y, cell.frame.width, cell.frame.height)
         
         PHImageManager.defaultManager().requestImageDataForAsset(cell.asset, options: opt) { (data, title, orientation, meta) -> Void in
             
             let img = UIImage(data: data!)
             self.currentEnhance = EnhanceViewController()
-            self.currentEnhance!.startFrame = startFrame
             self.currentEnhance!.image = img
             self.view.window!.addSubview(self.currentEnhance!.view)
             self.currentEnhance!.nav = self.navigationController

@@ -13,6 +13,7 @@ import MobileCoreServices
 import AssetsLibrary
 import AVFoundation
 import Photos
+import CoreImage
 
 class EnhanceResult {
     var gifLocation: NSURL?
@@ -108,12 +109,41 @@ class Enhancer {
         callback = finished
         
         var images = [self.imageToWidth(original, width: CGFloat(width))]
+        var last: UIImage?
         for i in 1..<frameCount+1 {
-            images.append(self.imageForFrame(i))
+            last = self.imageForFrame(i)
+            images.append(last!)
         }
+        
+        images.append(self.sharpen(last!, amount: 0.6))
+        images.append(self.sharpen(last!, amount: 1.5))
+        images.append(self.sharpen(last!, amount: 2.5))
         
         self.gif(images)
         self.video(images)
+    }
+    
+    func sharpen(image: UIImage, amount: Double) -> UIImage {
+        
+        /*
+        let filter = CIFilter(name: "CISharpenLuminance")!
+        filter.setValue(amount, forKey: kCIInputSharpnessKey)
+        */
+        let filter = CIFilter(name: "CIUnsharpMask")!
+        filter.setValue(amount, forKey: kCIInputIntensityKey)
+        filter.setValue(4.0, forKey: kCIInputRadiusKey)
+        
+        filter.setValue(CIImage(image: image)!, forKey: kCIInputImageKey)
+        
+        
+        
+        let out = filter.outputImage!
+        let context = CIContext(options: nil)
+        let cg = context.createCGImage(out, fromRect: out.extent)
+  
+        return UIImage(CGImage: cg)
+
+
     }
 
     func gif(images: [UIImage]) {
@@ -134,7 +164,9 @@ class Enhancer {
             } else {
                 frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 0.15]]
             }
-            CGImageDestinationAddImage(destination, images[i].CGImage!, frameProperties)
+            let cgi = images[i].CGImage
+            print(cgi)
+            CGImageDestinationAddImage(destination, cgi!, frameProperties)
         }
         
         if CGImageDestinationFinalize(destination) {

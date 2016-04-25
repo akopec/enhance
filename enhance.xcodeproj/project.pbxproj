@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0C5E631C5420D300563FAC /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F0C5E621C5420D300563FAC /* CoreImage.framework */; };
 		1F1648511B753D9B0036E577 /* EnhanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1648501B753D9B0036E577 /* EnhanceViewController.swift */; };
 		1F1CDBBF1C45563400176120 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F1CDBBE1C45563400176120 /* GoogleService-Info.plist */; };
 		1F1CDBC11C45564C00176120 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1CDBC01C45564C00176120 /* libGoogleAnalyticsServices.a */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0C5E621C5420D300563FAC /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		1F1648501B753D9B0036E577 /* EnhanceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnhanceViewController.swift; path = Controllers/EnhanceViewController.swift; sourceTree = "<group>"; };
 		1F1CDBBE1C45563400176120 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1F1CDBC01C45564C00176120 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0C5E631C5420D300563FAC /* CoreImage.framework in Frameworks */,
 				1F1CDBD51C45583E00176120 /* CoreData.framework in Frameworks */,
 				1F1CDBD31C45582E00176120 /* Security.framework in Frameworks */,
 				1F1CDBD11C45582900176120 /* SystemConfiguration.framework in Frameworks */,
@@ -98,6 +101,7 @@
 		1708D0A55D7BFE10D0CF841A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F0C5E621C5420D300563FAC /* CoreImage.framework */,
 				1F1CDBD41C45583E00176120 /* CoreData.framework */,
 				1F1CDBD21C45582E00176120 /* Security.framework */,
 				1F1CDBD01C45582900176120 /* SystemConfiguration.framework */,

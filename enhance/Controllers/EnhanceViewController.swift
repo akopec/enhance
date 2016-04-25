@@ -16,8 +16,6 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
     var imageView: UIView!
     var image: UIImage!
     
-    var startFrame: CGRect!
-    
     var nextButton: UIButton!
     var backButton: UIButton!
     
