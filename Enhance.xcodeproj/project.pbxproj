@@ -13,6 +13,7 @@
 		4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFAB1EAB762D00065938 /* Assets.xcassets */; };
 		4E4CDFAF1EAB762D00065938 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFAD1EAB762D00065938 /* LaunchScreen.storyboard */; };
 		4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFB81EAB7A4300065938 /* Color.swift */; };
+		4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4E4CDFAE1EAB762D00065938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E4CDFB01EAB762D00065938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E4CDFB81EAB7A4300065938 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				4E4CDFB71EAB76BD00065938 /* Application */,
+				4E4CDFC01EAB7CDD00065938 /* Support */,
 				4E4CDFB61EAB769600065938 /* Resources */,
 				4E4CDFA61EAB762D00065938 /* ViewController.swift */,
 			);
@@ -81,6 +84,14 @@
 				4E4CDFB81EAB7A4300065938 /* Color.swift */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		4E4CDFC01EAB7CDD00065938 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */,
+			);
+			name = Support;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 				4E4CDFA71EAB762D00065938 /* ViewController.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,
+				4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
