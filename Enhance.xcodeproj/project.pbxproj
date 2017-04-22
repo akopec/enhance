@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E4CDFA11EAB762D00065938 /* Enhance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Enhance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E4CDFA11EAB762D00065938 /* Zoom!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zoom!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E4CDFA41EAB762D00065938 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E4CDFA61EAB762D00065938 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4E4CDFA91EAB762D00065938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		4E4CDFA21EAB762D00065938 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4E4CDFA11EAB762D00065938 /* Enhance.app */,
+				4E4CDFA11EAB762D00065938 /* Zoom!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,7 +97,7 @@
 			);
 			name = Enhance;
 			productName = Enhance;
-			productReference = 4E4CDFA11EAB762D00065938 /* Enhance.app */;
+			productReference = 4E4CDFA11EAB762D00065938 /* Zoom!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +278,7 @@
 				INFOPLIST_FILE = Enhance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodsdon.Enhance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Zoom!";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -290,7 +290,7 @@
 				INFOPLIST_FILE = Enhance/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hodsdon.Enhance;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Zoom!";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -314,6 +314,7 @@
 				4E4CDFB51EAB762D00065938 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
