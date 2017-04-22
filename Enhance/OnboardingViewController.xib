@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GTWalsheimPro-BoldOblique.otf">
+            <string>GTWalsheimPro-BoldOblique</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingViewController" customModule="Zoom_" customModuleProvider="target">
             <connections>
@@ -29,25 +34,39 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uH-55k">
-                                            <rect key="frame" x="16" y="128" width="343" height="271"/>
+                                            <rect key="frame" x="16" y="128" width="343" height="239"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="153"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
                                                     <string key="text">Zoom,
 Enhance!</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="56"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-Z6-q9i">
-                                                    <rect key="frame" x="0.0" y="185" width="343" height="86"/>
-                                                    <string key="text">Zoom in on stuff.
-Make a GIF of it.
-Burn your friends.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="z3z-29-3Ak">
+                                                    <rect key="frame" x="0.0" y="144" width="343" height="95"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom in on stuff." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-Z6-q9i">
+                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
+                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a GIF of it." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="000-ZC-6yQ">
+                                                            <rect key="frame" x="0.0" y="36" width="343" height="23"/>
+                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn your friends." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-Nk-QAO">
+                                                            <rect key="frame" x="0.0" y="72" width="343" height="23"/>
+                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to go deeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrT-46-mIa">
