@@ -34,7 +34,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uH-55k">
-                                            <rect key="frame" x="16" y="158" width="343" height="239"/>
+                                            <rect key="frame" x="16" y="158.5" width="343" height="239"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
@@ -88,7 +88,28 @@ Enhance!</string>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3g-Ka-Juz" userLabel="Permissions View">
                                     <rect key="frame" x="375" y="0.0" width="375" height="667"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-r5-efB">
+                                            <rect key="frame" x="16" y="226.5" width="343" height="214"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
+                                                    <rect key="frame" x="133" y="0.0" width="77" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-BU-m1e">
+                                                    <rect key="frame" x="5" y="148" width="333" height="66"/>
+                                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="22"/>
+                                                    <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
                                     <color key="backgroundColor" red="0.15294117647058825" green="0.19607843137254902" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="8Q2-r5-efB" secondAttribute="trailing" constant="16" id="6mX-wF-1ur"/>
+                                        <constraint firstItem="8Q2-r5-efB" firstAttribute="centerY" secondItem="j3g-Ka-Juz" secondAttribute="centerY" id="PBe-mf-qiL"/>
+                                        <constraint firstItem="8Q2-r5-efB" firstAttribute="leading" secondItem="j3g-Ka-Juz" secondAttribute="leading" constant="16" id="aPi-Ds-OhE"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                         </stackView>
@@ -114,4 +135,7 @@ Enhance!</string>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="Film" width="77" height="100"/>
+    </resources>
 </document>
