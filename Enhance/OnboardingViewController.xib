@@ -12,14 +12,20 @@
         <array key="GTWalsheimPro-BoldOblique.otf">
             <string>GTWalsheimPro-BoldOblique</string>
         </array>
+        <array key="GTWalsheimPro.otf">
+            <string>GTWalsheimPro</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnboardingViewController" customModule="Zoom_" customModuleProvider="target">
             <connections>
+                <outlet property="permissionsInfo" destination="3mL-BU-m1e" id="36D-y7-RO8"/>
+                <outlet property="permissionsView" destination="j3g-Ka-Juz" id="UuS-4z-nae"/>
+                <outlet property="stackView" destination="G3D-jT-yVd" id="5vl-Sj-fp9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="welcomeView" destination="NyC-O4-a2X" id="oAI-Gq-PPB"/>
             </connections>
         </placeholder>
-        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,90 +34,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3D-jT-yVd">
-                            <rect key="frame" x="0.0" y="0.0" width="750" height="667"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NyC-O4-a2X" userLabel="Welcome View">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uH-55k">
-                                            <rect key="frame" x="16" y="158.5" width="343" height="239"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
-                                                    <string key="text">Zoom,
-Enhance!</string>
-                                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="56"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="z3z-29-3Ak">
-                                                    <rect key="frame" x="0.0" y="144" width="343" height="95"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom in on stuff." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-Z6-q9i">
-                                                            <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
-                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a GIF of it." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="000-ZC-6yQ">
-                                                            <rect key="frame" x="0.0" y="36" width="343" height="23"/>
-                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn your friends." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-Nk-QAO">
-                                                            <rect key="frame" x="0.0" y="72" width="343" height="23"/>
-                                                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                        </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to go deeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrT-46-mIa">
-                                            <rect key="frame" x="16" y="630.5" width="343" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
-                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="hrT-46-mIa" firstAttribute="leading" secondItem="NyC-O4-a2X" secondAttribute="leading" constant="16" id="6Ax-dA-DYW"/>
-                                        <constraint firstItem="9UE-uH-55k" firstAttribute="leading" secondItem="NyC-O4-a2X" secondAttribute="leading" constant="16" id="Aj3-NW-hYn"/>
-                                        <constraint firstAttribute="trailing" secondItem="hrT-46-mIa" secondAttribute="trailing" constant="16" id="Fg9-kW-R2t"/>
-                                        <constraint firstItem="9UE-uH-55k" firstAttribute="centerY" secondItem="NyC-O4-a2X" secondAttribute="centerY" constant="-56" id="GaL-pD-0il"/>
-                                        <constraint firstAttribute="trailing" secondItem="9UE-uH-55k" secondAttribute="trailing" constant="16" id="s9Z-LB-NW4"/>
-                                        <constraint firstAttribute="bottom" secondItem="hrT-46-mIa" secondAttribute="bottom" constant="16" id="uWi-j3-FGg"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j3g-Ka-Juz" userLabel="Permissions View">
-                                    <rect key="frame" x="375" y="0.0" width="375" height="667"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-r5-efB">
-                                            <rect key="frame" x="16" y="226.5" width="343" height="214"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
-                                                    <rect key="frame" x="133" y="0.0" width="77" height="100"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-BU-m1e">
-                                                    <rect key="frame" x="5" y="148" width="333" height="66"/>
-                                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="22"/>
-                                                    <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </stackView>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.15294117647058825" green="0.19607843137254902" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="8Q2-r5-efB" secondAttribute="trailing" constant="16" id="6mX-wF-1ur"/>
-                                        <constraint firstItem="8Q2-r5-efB" firstAttribute="centerY" secondItem="j3g-Ka-Juz" secondAttribute="centerY" id="PBe-mf-qiL"/>
-                                        <constraint firstItem="8Q2-r5-efB" firstAttribute="leading" secondItem="j3g-Ka-Juz" secondAttribute="leading" constant="16" id="aPi-Ds-OhE"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         </stackView>
                     </subviews>
                     <constraints>
@@ -125,14 +48,135 @@ Enhance!</string>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="rS4-u2-scn" secondAttribute="trailing" id="6KP-6H-P7k"/>
-                <constraint firstItem="j3g-Ka-Juz" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="9Ky-d2-Xvb"/>
-                <constraint firstItem="NyC-O4-a2X" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="DJI-2S-i2R"/>
                 <constraint firstItem="rS4-u2-scn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FjL-iZ-9rf"/>
                 <constraint firstItem="rS4-u2-scn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="H1G-B3-G4w"/>
-                <constraint firstItem="j3g-Ka-Juz" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Hk3-CS-Det"/>
+                <constraint firstItem="G3D-jT-yVd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" placeholder="YES" id="Q2g-Bh-VgG"/>
                 <constraint firstAttribute="bottom" secondItem="rS4-u2-scn" secondAttribute="bottom" id="cbx-z0-tem"/>
-                <constraint firstItem="NyC-O4-a2X" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qfR-Un-Net"/>
+                <constraint firstItem="G3D-jT-yVd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" placeholder="YES" id="dM9-iT-5En"/>
             </constraints>
+            <point key="canvasLocation" x="-337" y="-84"/>
+        </view>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="NyC-O4-a2X" userLabel="Welcome View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uH-55k">
+                    <rect key="frame" x="16" y="158.5" width="343" height="239"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
+                            <string key="text">Zoom,
+Enhance!</string>
+                            <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="56"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="z3z-29-3Ak">
+                            <rect key="frame" x="0.0" y="144" width="343" height="95"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom in on stuff." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-Z6-q9i">
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
+                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a GIF of it." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="000-ZC-6yQ">
+                                    <rect key="frame" x="0.0" y="36" width="343" height="23"/>
+                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn your friends." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-Nk-QAO">
+                                    <rect key="frame" x="0.0" y="72" width="343" height="23"/>
+                                    <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="swipe to go deeper" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrT-46-mIa">
+                    <rect key="frame" x="16" y="630.5" width="343" height="20.5"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.31372549019607843" green="0.8901960784313725" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hrT-46-mIa" firstAttribute="leading" secondItem="NyC-O4-a2X" secondAttribute="leading" constant="16" id="6Ax-dA-DYW"/>
+                <constraint firstItem="9UE-uH-55k" firstAttribute="leading" secondItem="NyC-O4-a2X" secondAttribute="leading" constant="16" id="Aj3-NW-hYn"/>
+                <constraint firstAttribute="trailing" secondItem="hrT-46-mIa" secondAttribute="trailing" constant="16" id="Fg9-kW-R2t"/>
+                <constraint firstItem="9UE-uH-55k" firstAttribute="centerY" secondItem="NyC-O4-a2X" secondAttribute="centerY" constant="-56" id="GaL-pD-0il"/>
+                <constraint firstAttribute="trailing" secondItem="9UE-uH-55k" secondAttribute="trailing" constant="16" id="s9Z-LB-NW4"/>
+                <constraint firstAttribute="bottom" secondItem="hrT-46-mIa" secondAttribute="bottom" constant="16" id="uWi-j3-FGg"/>
+            </constraints>
+            <point key="canvasLocation" x="-546" y="652"/>
+        </view>
+        <view contentMode="scaleToFill" id="j3g-Ka-Juz" userLabel="Permissions View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-r5-efB">
+                    <rect key="frame" x="32" y="178.5" width="311" height="214"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
+                            <rect key="frame" x="117" y="0.0" width="77" height="100"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-BU-m1e">
+                            <rect key="frame" x="3" y="148" width="305" height="66"/>
+                            <fontDescription key="fontDescription" name="GTWalsheimPro" family="GT Walsheim Pro" pointSize="22"/>
+                            <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-tA-QOm">
+                    <rect key="frame" x="32" y="562" width="311" height="73"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap &quot;OK&quot; on the popup screen, cool?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-L3-Nsg">
+                            <rect key="frame" x="17" y="0.0" width="277.5" height="17"/>
+                            <fontDescription key="fontDescription" name="GTWalsheimPro" family="GT Walsheim Pro" pointSize="17"/>
+                            <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1B-jB-LXJ">
+                            <rect key="frame" x="40" y="33" width="231" height="40"/>
+                            <color key="backgroundColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="jAx-Ko-uyg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="GTWalsheimPro" family="GT Walsheim Pro" pointSize="18"/>
+                            <state key="normal" title="Will do!">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="4"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="permissionsButtonTouchUpInsideSender:" destination="-1" eventType="touchUpInside" id="FdZ-7I-phI"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="y1B-jB-LXJ" firstAttribute="width" secondItem="2Pc-tA-QOm" secondAttribute="width" constant="-80" id="Gdw-7L-ghK"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="0.15294117647058825" green="0.19607843137254902" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8Q2-r5-efB" secondAttribute="trailing" constant="32" id="6mX-wF-1ur"/>
+                <constraint firstAttribute="bottom" secondItem="2Pc-tA-QOm" secondAttribute="bottom" constant="32" id="9I9-ed-bKF"/>
+                <constraint firstAttribute="trailing" secondItem="2Pc-tA-QOm" secondAttribute="trailing" constant="32" id="C6Q-3p-4iN"/>
+                <constraint firstItem="2Pc-tA-QOm" firstAttribute="leading" secondItem="j3g-Ka-Juz" secondAttribute="leading" constant="32" id="FrI-ep-aad"/>
+                <constraint firstItem="8Q2-r5-efB" firstAttribute="centerY" secondItem="j3g-Ka-Juz" secondAttribute="centerY" constant="-48" id="PBe-mf-qiL"/>
+                <constraint firstItem="8Q2-r5-efB" firstAttribute="leading" secondItem="j3g-Ka-Juz" secondAttribute="leading" constant="32" id="aPi-Ds-OhE"/>
+            </constraints>
+            <point key="canvasLocation" x="-103" y="652"/>
         </view>
     </objects>
     <resources>
