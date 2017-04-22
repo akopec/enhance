@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 final class OnboardingViewController: UIViewController {
 
@@ -48,15 +49,20 @@ final class OnboardingViewController: UIViewController {
         ])
 
         let permissionsInfoCopy = NSMutableAttributedString()
+
         let permissionsInfoCopyParagraphStyle = NSMutableParagraphStyle()
         permissionsInfoCopyParagraphStyle.lineHeightMultiple = 1.2
+        permissionsInfoCopyParagraphStyle.alignment = .center
+
         permissionsInfoCopy.append(NSAttributedString(string: "Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless.", attributes: [
             NSFontAttributeName: Font.GTWalsheimPro(size: 22),
             NSParagraphStyleAttributeName: permissionsInfoCopyParagraphStyle
         ]))
+        
         permissionsInfoCopy.addAttributes([
             NSFontAttributeName: Font.GTWalsheimProBoldOblique(size: 22)
         ], range: NSRange(location: 0, length: 15))
+
         permissionsInfo.attributedText = permissionsInfoCopy
     }
 
