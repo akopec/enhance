@@ -14,6 +14,8 @@
 		4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFBC1EAB7BED00065938 /* OnboardingViewController.swift */; };
 		4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFBD1EAB7BED00065938 /* OnboardingViewController.xib */; };
 		4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */; };
+		4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */; };
+		4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		4E4CDFBC1EAB7BED00065938 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		4E4CDFBD1EAB7BED00065938 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
+		4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTWalsheimPro-BoldOblique.otf"; sourceTree = "<group>"; };
+		4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTWalsheimPro.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 		4E4CDFB61EAB769600065938 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4E4CDFC31EAB828800065938 /* Fonts */,
 				4E4CDFB01EAB762D00065938 /* Info.plist */,
 				4E4CDFAB1EAB762D00065938 /* Assets.xcassets */,
 				4E4CDFAD1EAB762D00065938 /* LaunchScreen.storyboard */,
@@ -108,6 +113,15 @@
 				4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		4E4CDFC31EAB828800065938 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */,
+				4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E4CDFAF1EAB762D00065938 /* LaunchScreen.storyboard in Resources */,
+				4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */,
+				4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */,
 				4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */,
 				4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */,
 			);
