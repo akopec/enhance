@@ -35,6 +35,10 @@ final class OnboardingViewController: UIViewController {
 
     // MARK: - UIViewController
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
