@@ -58,7 +58,7 @@ final class OnboardingViewController: UIViewController {
             NSFontAttributeName: Font.GTWalsheimPro(size: 22),
             NSParagraphStyleAttributeName: permissionsInfoCopyParagraphStyle
         ]))
-        
+
         permissionsInfoCopy.addAttributes([
             NSFontAttributeName: Font.GTWalsheimProBoldOblique(size: 22)
         ], range: NSRange(location: 0, length: 15))
@@ -70,6 +70,8 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction private func permissionsButtonTouchUpInside(sender: UIButton) {
-        print(#function)
+        PHPhotoLibrary.requestAuthorization({ status in
+            print(status)
+        })
     }
 }
