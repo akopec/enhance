@@ -16,6 +16,7 @@
 		4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */; };
 		4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */; };
 		4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */; };
+		4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFCB1EAB8C7300065938 /* Font.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 		4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTWalsheimPro-BoldOblique.otf"; sourceTree = "<group>"; };
 		4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTWalsheimPro.otf; sourceTree = "<group>"; };
+		4E4CDFCB1EAB8C7300065938 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				4E4CDFA41EAB762D00065938 /* AppDelegate.swift */,
 				4E4CDFB81EAB7A4300065938 /* Color.swift */,
+				4E4CDFCB1EAB8C7300065938 /* Font.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,
+				4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */,
 				4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */,
 				4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */,
 			);
