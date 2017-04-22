@@ -13,6 +13,8 @@
 		4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFAB1EAB762D00065938 /* Assets.xcassets */; };
 		4E4CDFAF1EAB762D00065938 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFAD1EAB762D00065938 /* LaunchScreen.storyboard */; };
 		4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFB81EAB7A4300065938 /* Color.swift */; };
+		4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFBC1EAB7BED00065938 /* OnboardingViewController.swift */; };
+		4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFBD1EAB7BED00065938 /* OnboardingViewController.xib */; };
 		4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		4E4CDFAE1EAB762D00065938 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E4CDFB01EAB762D00065938 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E4CDFB81EAB7A4300065938 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		4E4CDFBC1EAB7BED00065938 /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		4E4CDFBD1EAB7BED00065938 /* OnboardingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OnboardingViewController.xib; sourceTree = "<group>"; };
 		4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unimplemented.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				4E4CDFB71EAB76BD00065938 /* Application */,
+				4E4CDFBA1EAB7BC000065938 /* Screens */,
 				4E4CDFC01EAB7CDD00065938 /* Support */,
 				4E4CDFB61EAB769600065938 /* Resources */,
 				4E4CDFA61EAB762D00065938 /* ViewController.swift */,
@@ -84,6 +89,23 @@
 				4E4CDFB81EAB7A4300065938 /* Color.swift */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		4E4CDFBA1EAB7BC000065938 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				4E4CDFBB1EAB7BCB00065938 /* Onboarding */,
+			);
+			name = Screens;
+			sourceTree = "<group>";
+		};
+		4E4CDFBB1EAB7BCB00065938 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				4E4CDFBC1EAB7BED00065938 /* OnboardingViewController.swift */,
+				4E4CDFBD1EAB7BED00065938 /* OnboardingViewController.xib */,
+			);
+			name = Onboarding;
 			sourceTree = "<group>";
 		};
 		4E4CDFC01EAB7CDD00065938 /* Support */ = {
@@ -155,6 +177,7 @@
 				4E4CDFAF1EAB762D00065938 /* LaunchScreen.storyboard in Resources */,
 				4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */,
 				4E4CDFAA1EAB762D00065938 /* Main.storyboard in Resources */,
+				4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +191,7 @@
 				4E4CDFA71EAB762D00065938 /* ViewController.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,
+				4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */,
 				4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
