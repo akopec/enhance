@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45D63D5B864A80C5E5E43224 /* Pods_Enhance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35A629201668C19291D10A4 /* Pods_Enhance.framework */; };
+		4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */; };
 		4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AD11C1EAD0219002640CE /* PhotoSelectionViewController.swift */; };
 		4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AD11E1EAD0301002640CE /* UIColor.swift */; };
 		4E4AD1221EAD11FA002640CE /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AD1201EAD11FA002640CE /* ThumbnailCollectionViewCell.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+PHImageManager.swift"; sourceTree = "<group>"; };
 		4E4AD11C1EAD0219002640CE /* PhotoSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewController.swift; sourceTree = "<group>"; };
 		4E4AD11E1EAD0301002640CE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4E4AD1201EAD11FA002640CE /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			children = (
 				4E4AD11E1EAD0301002640CE /* UIColor.swift */,
 				4E4CDFC11EAB7D0300065938 /* Unimplemented.swift */,
+				4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */,
 				4E4AD1221EAD11FA002640CE /* ThumbnailCollectionViewCell.swift in Sources */,
 				4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */,
+				4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */,
 				4E4CDFC21EAB7D0300065938 /* Unimplemented.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
