@@ -21,6 +21,10 @@ final class OnboardingViewController: UIViewController {
 
     @IBOutlet private var permissionsInfo: UILabel!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
+    }
+
 
     // MARK: - Initializers
 
@@ -34,10 +38,6 @@ final class OnboardingViewController: UIViewController {
 
 
     // MARK: - UIViewController
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
