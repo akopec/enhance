@@ -56,6 +56,27 @@ final class EnhancementImageView: UIView, UIScrollViewDelegate {
         scrollView.addSubview(imageView)
 
         addSubview(scrollView)
+
+        let upperOverlay = UIView()
+        let lowerOverlay = UIView()
+
+        upperOverlay.backgroundColor = UIColor(hex: 0x222222).withAlphaComponent(0.75)
+        lowerOverlay.backgroundColor = UIColor(hex: 0x222222).withAlphaComponent(0.75)
+
+        overlayStackView.axis = .vertical
+        overlayStackView.distribution = .fillEqually
+        overlayStackView.addArrangedSubview(upperOverlay)
+        overlayStackView.addArrangedSubview(lowerOverlay)
+        overlayStackView.isUserInteractionEnabled = false
+        overlayStackView.translatesAutoresizingMaskIntoConstraints = false
+
+        addSubview(overlayStackView)
+        NSLayoutConstraint.activate([
+            overlayStackView.topAnchor.constraint(equalTo: topAnchor),
+            overlayStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            overlayStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            overlayStackView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
     }
 
     private func updateImage() {
@@ -82,6 +103,8 @@ final class EnhancementImageView: UIView, UIScrollViewDelegate {
             scrollView.zoomScale = 1.0
             scrollView.contentInset = .zero
         }
+
+        overlayStackView.spacing = imageView.frame.height
 
         var horizontalInset: CGFloat = 0
         var verticalInset: CGFloat = 0
