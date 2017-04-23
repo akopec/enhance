@@ -63,6 +63,15 @@ final class PhotoSelectionViewController: UICollectionViewController {
         cell.asset.value = fetchResult?.object(at: indexPath.item)
         return cell
     }
+
+
+    // MARK: - UICollectionViewDelegate
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let asset = fetchResult?.object(at: indexPath.item) else { return }
+        let viewController = EnhancementViewController(asset: asset)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 extension PhotoSelectionViewController: UICollectionViewDelegateFlowLayout {

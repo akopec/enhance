@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnhancementViewController" customModule="Zoom_" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="dar-E5-LbA" id="C9b-S5-PKj"/>
+                <outlet property="continueButton" destination="kmB-eu-BrA" id="Kn9-CM-LW6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mUQ-As-4cL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </scrollView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-KP-QPZ">
+                    <rect key="frame" x="131.5" y="605" width="112" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dar-E5-LbA">
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
+                            <state key="normal" title="Cancel"/>
+                            <connections>
+                                <action selector="cancelWithSender:" destination="-1" eventType="touchUpInside" id="iDu-Ee-347"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-eu-BrA">
+                            <rect key="frame" x="64" y="0.0" width="48" height="30"/>
+                            <state key="normal" title="Next"/>
+                            <connections>
+                                <action selector="saveWithSender:" destination="-1" eventType="touchUpInside" id="J9H-Vy-uXr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mUQ-As-4cL" secondAttribute="trailing" id="4zn-Xe-Wxk"/>
+                <constraint firstAttribute="bottom" secondItem="mUQ-As-4cL" secondAttribute="bottom" id="CIn-Y9-uOG"/>
+                <constraint firstItem="9bp-KP-QPZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FAO-oA-u6W"/>
+                <constraint firstAttribute="bottom" secondItem="9bp-KP-QPZ" secondAttribute="bottom" constant="32" id="JvH-Dz-Jjb"/>
+                <constraint firstItem="mUQ-As-4cL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OQu-AT-iKZ"/>
+                <constraint firstItem="mUQ-As-4cL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pzg-oi-5WG"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
