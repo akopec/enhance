@@ -30,4 +30,22 @@ extension Reactive where Base: PHImageManager {
             })
         })
     }
+
+    func requestImageData(for asset: PHAsset, options: PHImageRequestOptions? = nil) -> SignalProducer<(Data, UIImageOrientation), AnyError> {
+        return SignalProducer({ observer, disposable in
+            let id = self.base.requestImageData(for: asset, options: options, resultHandler: { data, uti, orientation, info in
+                if let data = data {
+                    observer.send(value: (data, orientation))
+                    observer.sendCompleted()
+                }
+                else if let error = info?[PHImageErrorKey] as? NSError {
+                    observer.send(error: AnyError(error))
+                }
+            })
+
+            disposable.add({
+                self.base.cancelImageRequest(id)
+            })
+        })
+    }
 }
