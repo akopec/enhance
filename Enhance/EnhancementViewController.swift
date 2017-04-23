@@ -23,6 +23,10 @@ final class EnhancementViewController: UIViewController {
 
     @IBOutlet private var imageView: EnhancementImageView!
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
 
     // MARK: - Initializers
 
@@ -48,6 +52,16 @@ final class EnhancementViewController: UIViewController {
             .map({ data, _ in UIImage(data: data) })
             .flatMapError({ _ in .empty })
             .observe(on: UIScheduler())
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
 
