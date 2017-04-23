@@ -8,12 +8,17 @@
 
 import UIKit
 import Photos
+import Result
+import ReactiveSwift
+import ReactiveCocoa
 
 final class ThumbnailCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Properties
 
-    let imageView: UIImageView
+    private let imageView: UIImageView
+
+    let asset = MutableProperty<PHAsset?>(nil)
 
 
     // MARK: - Initializers
@@ -34,6 +39,18 @@ final class ThumbnailCollectionViewCell: UICollectionViewCell {
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+
+        imageView.reactive.image <~ asset.producer
+            .flatMap(.latest, transform: { asset -> SignalProducer<UIImage, AnyError> in
+                guard let asset = asset else { return .empty }
+
+                let targetSize = CGSize(width: 256, height: 256)
+
+                return PHImageManager.default().reactive
+                    .requestImage(for: asset, targetSize: targetSize, contentMode: .aspectFill)
+            })
+            .flatMapError({ _ in .empty })
+            .observe(on: UIScheduler())
     }
 
     required init?(coder: NSCoder) {
@@ -45,5 +62,6 @@ final class ThumbnailCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
+        asset.value = nil
     }
 }
