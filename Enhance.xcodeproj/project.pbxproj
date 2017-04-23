@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AD11C1EAD0219002640CE /* PhotoSelectionViewController.swift */; };
 		4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4AD11E1EAD0301002640CE /* UIColor.swift */; };
 		4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFA41EAB762D00065938 /* AppDelegate.swift */; };
 		4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFAB1EAB762D00065938 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E4AD11C1EAD0219002640CE /* PhotoSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectionViewController.swift; sourceTree = "<group>"; };
 		4E4AD11E1EAD0301002640CE /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		4E4CDFA11EAB762D00065938 /* Zoom!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Zoom!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E4CDFA41EAB762D00065938 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E4AD11B1EAD01E2002640CE /* Photo Selection */ = {
+			isa = PBXGroup;
+			children = (
+				4E4AD11C1EAD0219002640CE /* PhotoSelectionViewController.swift */,
+			);
+			name = "Photo Selection";
+			sourceTree = "<group>";
+		};
 		4E4CDF981EAB762D00065938 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				4E4CDFBB1EAB7BCB00065938 /* Onboarding */,
+				4E4AD11B1EAD01E2002640CE /* Photo Selection */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -203,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */,
 				4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,

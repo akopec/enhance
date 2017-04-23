@@ -19,13 +19,30 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - UIApplicationDelegate
 
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = OnboardingViewController()
-        window?.makeKeyAndVisible()
+        configureAppearance()
+        configureWindow()
         return true
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
+    }
+
+
+    // MARK: - Private
+
+    private func configureWindow() {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: PhotoSelectionViewController())
+        window?.makeKeyAndVisible()
+    }
+
+    private func configureAppearance() {
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().barTintColor = Color.teal()
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName: UIColor.white,
+            NSFontAttributeName: Font.GTWalsheimProBoldOblique(size: 20)
+        ]
     }
 }
