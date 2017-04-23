@@ -60,8 +60,17 @@ final class PhotoSelectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail", for: indexPath) as! ThumbnailCollectionViewCell
-        
+        cell.asset.value = fetchResult?.object(at: indexPath.item)
         return cell
+    }
+}
+
+extension PhotoSelectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let columns: CGFloat = 3
+        let padding: CGFloat = 2
+        let columnWidth = (collectionView.bounds.width - (padding * columns)) / columns
+        return CGSize(width: columnWidth, height: columnWidth)
     }
 }
 
@@ -69,6 +78,10 @@ extension PhotoSelectionViewController {
     final class CollectionViewLayout: UICollectionViewFlowLayout {
         override init() {
             super.init()
+
+            minimumLineSpacing = 2
+            minimumInteritemSpacing = 2
+            sectionInset = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
         }
 
         required init?(coder: NSCoder) {
