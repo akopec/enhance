@@ -11,6 +11,15 @@ import Photos
 
 final class PhotoSelectionViewController: UICollectionViewController {
 
+    // MARK: - Properties
+
+    private var fetchResult: PHFetchResult<PHAsset>? {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
+
+
     // MARK: - Initializers
 
     init() {
@@ -30,19 +39,28 @@ final class PhotoSelectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         collectionView?.backgroundColor = UIColor(hex: 0x222222)
-        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView?.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: "thumbnail")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let options = PHFetchOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+        fetchResult = PHAsset.fetchAssets(with: options)
     }
 
 
     // MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return fetchResult?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail", for: indexPath) as! ThumbnailCollectionViewCell
+        
         return cell
     }
 }
