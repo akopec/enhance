@@ -17,6 +17,8 @@ final class EnhancementImageView: UIView, UIScrollViewDelegate {
 
     private let scrollView = UIScrollView()
 
+    private let overlayStackView = UIStackView()
+
     var image: UIImage? {
         didSet {
             updateImage()
