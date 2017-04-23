@@ -8,6 +8,8 @@
 
 import UIKit
 import Photos
+import ReactiveSwift
+import ReactiveCocoa
 
 final class EnhancementViewController: UIViewController {
 
@@ -18,6 +20,8 @@ final class EnhancementViewController: UIViewController {
     @IBOutlet private var cancelButton: UIButton!
 
     @IBOutlet private var continueButton: UIButton!
+
+    @IBOutlet private var imageView: EnhancementImageView!
 
 
     // MARK: - Initializers
@@ -36,6 +40,14 @@ final class EnhancementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = UIColor(hex: 0x222222)
+
+        imageView.reactive.image <~ PHImageManager.default().reactive
+            .requestImageData(for: asset)
+            .map({ data, _ in UIImage(data: data) })
+            .flatMapError({ _ in .empty })
+            .observe(on: UIScheduler())
     }
 
 
