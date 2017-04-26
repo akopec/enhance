@@ -25,15 +25,18 @@ final class EnhancementImageView: UIView, UIScrollViewDelegate {
         }
     }
 
-    var cropRect: CGRect {
+    var cropRect: CGRect? {
+        guard let image = image else {
+            return nil
+        }
         let inset = scrollView.contentInset
         let zoom = scrollView.zoomScale
         let adjustedX = scrollView.contentOffset.x - inset.left
         let adjustedY = scrollView.contentOffset.y + inset.top
-        let scaledX = adjustedX * (1.0 / zoom)
-        let scaledY = adjustedY * (1.0 / zoom)
-        let scaledWidth = scrollView.bounds.width / zoom
-        let scaledHeight = scrollView.bounds.height / zoom
+        let scaledX = floor(adjustedX * (1.0 / zoom))
+        let scaledY = floor(adjustedY * (1.0 / zoom))
+        let scaledWidth = floor(scrollView.bounds.width / zoom)
+        let scaledHeight = floor(scaledWidth / (image.size.width / image.size.height))
         return CGRect(x: scaledX, y: scaledY, width: scaledWidth, height: scaledHeight)
     }
 
@@ -55,10 +58,6 @@ final class EnhancementImageView: UIView, UIScrollViewDelegate {
 
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return imageView
-    }
-
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("Crop Rect", cropRect)
     }
 
 
