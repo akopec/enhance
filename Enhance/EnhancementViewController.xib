@@ -13,7 +13,7 @@
             <connections>
                 <outlet property="cancelButton" destination="dar-E5-LbA" id="C9b-S5-PKj"/>
                 <outlet property="continueButton" destination="kmB-eu-BrA" id="Kn9-CM-LW6"/>
-                <outlet property="imageView" destination="UvV-rc-zJd" id="GMc-Mr-2WC"/>
+                <outlet property="imageView" destination="Xk8-6x-3Xb" id="EeD-i2-3PV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,8 +22,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UvV-rc-zJd" customClass="EnhancementImageView" customModule="Zoom_" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xk8-6x-3Xb" customClass="EnhancementImageView" customModule="Zoom_" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-KP-QPZ">
                     <rect key="frame" x="131.5" y="605" width="112" height="30"/>
@@ -47,12 +48,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="UvV-rc-zJd" secondAttribute="bottom" id="1ox-34-hzh"/>
-                <constraint firstAttribute="trailing" secondItem="UvV-rc-zJd" secondAttribute="trailing" id="7OP-Mg-USF"/>
+                <constraint firstItem="Xk8-6x-3Xb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7y8-Zz-1tZ"/>
                 <constraint firstItem="9bp-KP-QPZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FAO-oA-u6W"/>
                 <constraint firstAttribute="bottom" secondItem="9bp-KP-QPZ" secondAttribute="bottom" constant="32" id="JvH-Dz-Jjb"/>
-                <constraint firstItem="UvV-rc-zJd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ZmA-Ob-GHz"/>
-                <constraint firstItem="UvV-rc-zJd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="a6r-ts-WWU"/>
+                <constraint firstItem="Xk8-6x-3Xb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uy8-Xx-lLF"/>
+                <constraint firstAttribute="trailing" secondItem="Xk8-6x-3Xb" secondAttribute="trailing" id="y0A-ra-Gbn"/>
+                <constraint firstAttribute="bottom" secondItem="Xk8-6x-3Xb" secondAttribute="bottom" id="ymb-FN-Y6r"/>
             </constraints>
         </view>
     </objects>
