@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EnhancementViewController" customModule="Zoom_" customModuleProvider="target">
             <connections>
-                <outlet property="cancelButton" destination="dar-E5-LbA" id="C9b-S5-PKj"/>
-                <outlet property="continueButton" destination="kmB-eu-BrA" id="Kn9-CM-LW6"/>
+                <outlet property="cancelButton" destination="Wbb-90-tbm" id="e4T-gn-FgF"/>
+                <outlet property="continueButton" destination="tPX-g1-1D2" id="Z2F-NA-JEE"/>
                 <outlet property="imageView" destination="ytl-Gc-Lq6" id="EZj-9z-WkA"/>
                 <outlet property="scrollView" destination="8ol-bG-dhc" id="KwK-IR-Izy"/>
                 <outlet property="scrollViewHeight" destination="lJ4-w6-07V" id="Qim-Nu-HZQ"/>
@@ -50,23 +50,39 @@
                     <rect key="frame" x="0.0" y="439" width="375" height="228"/>
                     <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.75" colorSpace="calibratedRGB"/>
                 </view>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-KP-QPZ">
-                    <rect key="frame" x="131.5" y="605" width="112" height="30"/>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-KP-QPZ">
+                    <rect key="frame" x="107.5" y="587" width="160" height="48"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dar-E5-LbA">
-                            <rect key="frame" x="0.0" y="0.0" width="48" height="30"/>
-                            <state key="normal" title="Cancel"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wbb-90-tbm" customClass="CircleButton" customModule="Zoom_" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="aei-hZ-Rac"/>
+                                <constraint firstAttribute="height" constant="48" id="ddG-R2-YQP"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="icon-cancel"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="cancelWithSender:" destination="-1" eventType="touchUpInside" id="iDu-Ee-347"/>
+                                <action selector="cancelWithSender:" destination="-1" eventType="touchUpInside" id="pBI-LO-hhE"/>
                             </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmB-eu-BrA">
-                            <rect key="frame" x="64" y="0.0" width="48" height="30"/>
-                            <state key="normal" title="Next"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPX-g1-1D2" customClass="CircleButton" customModule="Zoom_" customModuleProvider="target">
+                            <rect key="frame" x="112" y="0.0" width="48" height="48"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="48" id="bP0-sO-qoX"/>
+                                <constraint firstAttribute="height" constant="48" id="u5e-sr-wSz"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="image" keyPath="image" value="icon-right-arrow"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="saveWithSender:" destination="-1" eventType="touchUpInside" id="J9H-Vy-uXr"/>
+                                <action selector="saveWithSender:" destination="-1" eventType="touchUpInside" id="pAM-RX-rDz"/>
                             </connections>
-                        </button>
+                        </view>
                     </subviews>
                 </stackView>
             </subviews>
@@ -88,4 +104,8 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="icon-cancel" width="21" height="21"/>
+        <image name="icon-right-arrow" width="28" height="25"/>
+    </resources>
 </document>

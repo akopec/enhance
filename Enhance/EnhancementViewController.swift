@@ -21,9 +21,9 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet private var imageView: UIImageView!
 
-    @IBOutlet private var cancelButton: UIButton!
+    @IBOutlet private var cancelButton: UIControl!
 
-    @IBOutlet private var continueButton: UIButton!
+    @IBOutlet private var continueButton: UIControl!
 
     @IBOutlet private var scrollViewHeight: NSLayoutConstraint!
 
