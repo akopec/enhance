@@ -26,6 +26,7 @@
 		4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFCB1EAB8C7300065938 /* Font.swift */; };
 		4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */; };
 		4E5C547E1EB26CEF006F09C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C54801EB26CEF006F09C9 /* Localizable.strings */; };
+		4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C54811EB276ED006F09C9 /* Settings.swift */; };
 		4E68A03C1EB1727A00E40D51 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E68A03B1EB1727A00E40D51 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		4E4CDFCB1EAB8C7300065938 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionDeniedEmptyView.swift; sourceTree = "<group>"; };
 		4E5C547F1EB26CEF006F09C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		4E5C54811EB276ED006F09C9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4E68A03B1EB1727A00E40D51 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		82BED942914BA8C67BABB6DC /* Pods-Enhance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enhance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Enhance/Pods-Enhance.debug.xcconfig"; sourceTree = "<group>"; };
 		A7F16F372B1E49BF27DBD06E /* Pods-Enhance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enhance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Enhance/Pods-Enhance.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				4E4CDFA41EAB762D00065938 /* AppDelegate.swift */,
 				4E4CDFB81EAB7A4300065938 /* Color.swift */,
 				4E4CDFCB1EAB8C7300065938 /* Font.swift */,
+				4E5C54811EB276ED006F09C9 /* Settings.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 			files = (
 				4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */,
 				4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */,
+				4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */,
 				4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,
