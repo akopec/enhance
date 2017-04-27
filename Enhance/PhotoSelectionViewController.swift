@@ -40,6 +40,24 @@ final class PhotoSelectionViewController: UICollectionViewController {
 
         collectionView?.backgroundColor = UIColor(hex: 0x222222)
         collectionView?.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: "thumbnail")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        let photosAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
+        collectionView?.backgroundView = photosAuthorized ? nil : PermissionDeniedEmptyView()
+
+        if photosAuthorized {
+            let fetchOptions = PHFetchOptions()
+            fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+            fetchOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
+            fetchResult = PHAsset.fetchAssets(with: fetchOptions)
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
         if !Settings.hasShownApplicationOnboarding {
             let onboarding = OnboardingViewController()
@@ -47,18 +65,6 @@ final class PhotoSelectionViewController: UICollectionViewController {
                 Settings.hasShownApplicationOnboarding = true
             })
         }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        let photosAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
-        collectionView?.backgroundView = photosAuthorized ? nil : PermissionDeniedEmptyView()
-
-        let options = PHFetchOptions()
-        options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-        options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
-        fetchResult = PHAsset.fetchAssets(with: options)
     }
 
 
