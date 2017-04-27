@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="permissionsInfo" destination="3mL-BU-m1e" id="36D-y7-RO8"/>
                 <outlet property="permissionsView" destination="j3g-Ka-Juz" id="UuS-4z-nae"/>
+                <outlet property="scrollView" destination="rS4-u2-scn" id="zK0-oJ-J1y"/>
                 <outlet property="stackView" destination="G3D-jT-yVd" id="5vl-Sj-fp9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="welcomeView" destination="NyC-O4-a2X" id="oAI-Gq-PPB"/>
@@ -120,13 +121,13 @@ Enhance!</string>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-r5-efB">
-                    <rect key="frame" x="32" y="178.5" width="311" height="214"/>
+                    <rect key="frame" x="32" y="173" width="311" height="225"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
                             <rect key="frame" x="117" y="0.0" width="77" height="100"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-BU-m1e">
-                            <rect key="frame" x="3" y="148" width="305" height="66"/>
+                            <rect key="frame" x="1" y="148" width="309" height="77"/>
                             <fontDescription key="fontDescription" name="GTWalsheimPro" family="GT Walsheim Pro" pointSize="22"/>
                             <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -134,16 +135,16 @@ Enhance!</string>
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-tA-QOm">
-                    <rect key="frame" x="32" y="562" width="311" height="73"/>
+                    <rect key="frame" x="32" y="559" width="311" height="76"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap &quot;OK&quot; on the popup screen, cool?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw5-L3-Nsg">
-                            <rect key="frame" x="17" y="0.0" width="277.5" height="17"/>
+                            <rect key="frame" x="13.5" y="0.0" width="284.5" height="20"/>
                             <fontDescription key="fontDescription" name="GTWalsheimPro" family="GT Walsheim Pro" pointSize="17"/>
                             <color key="textColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1B-jB-LXJ">
-                            <rect key="frame" x="40" y="33" width="231" height="40"/>
+                            <rect key="frame" x="40" y="36" width="231" height="40"/>
                             <color key="backgroundColor" red="0.31372549020000001" green="0.89019607840000003" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="jAx-Ko-uyg"/>

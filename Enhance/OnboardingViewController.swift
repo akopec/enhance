@@ -13,6 +13,8 @@ final class OnboardingViewController: UIViewController {
 
     // MARK: - Properties
 
+    @IBOutlet private var scrollView: UIScrollView!
+
     @IBOutlet private var stackView: UIStackView!
 
     @IBOutlet private var welcomeView: UIView!
@@ -41,6 +43,10 @@ final class OnboardingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let tapGestureRecognizer = UITapGestureRecognizer()
+        tapGestureRecognizer.addTarget(self, action: #selector(advancePage))
+        welcomeView.addGestureRecognizer(tapGestureRecognizer)
 
         stackView.addArrangedSubview(welcomeView)
         stackView.addArrangedSubview(permissionsView)
@@ -73,6 +79,12 @@ final class OnboardingViewController: UIViewController {
 
 
     // MARK: - Actions
+
+    @IBAction private func advancePage(sender: UIGestureRecognizer) {
+        if sender.state == .ended {
+            scrollView.scrollRectToVisible(permissionsView.frame, animated: true)
+        }
+    }
 
     @IBAction private func permissionsButtonTouchUpInside(sender: UIButton) {
         PHPhotoLibrary.requestAuthorization({ [weak self] _ in
