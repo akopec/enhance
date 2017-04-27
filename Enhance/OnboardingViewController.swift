@@ -58,14 +58,15 @@ final class OnboardingViewController: UIViewController {
         permissionsInfoCopyParagraphStyle.lineHeightMultiple = 1.2
         permissionsInfoCopyParagraphStyle.alignment = .center
 
-        permissionsInfoCopy.append(NSAttributedString(string: "Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless.", attributes: [
+        let explanation = NSLocalizedString("onboarding.permissionsExplanation", comment: "")
+        permissionsInfoCopy.append(NSAttributedString(string: explanation, attributes: [
             NSFontAttributeName: Font.GTWalsheimPro(size: 22),
             NSParagraphStyleAttributeName: permissionsInfoCopyParagraphStyle
         ]))
 
         permissionsInfoCopy.addAttributes([
             NSFontAttributeName: Font.GTWalsheimProBoldOblique(size: 22)
-        ], range: NSRange(location: 0, length: 15))
+        ], range: (explanation as NSString).range(of: "Zoom, Enhance!"))
 
         permissionsInfo.attributedText = permissionsInfoCopy
     }

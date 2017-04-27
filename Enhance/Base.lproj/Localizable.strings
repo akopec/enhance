@@ -7,5 +7,8 @@
 */
 
 "application.name" = "Zoom, Enhance!";
+
+"onboarding.permissionsExplanation" = "Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless.";
+
 "photos.permissionDenied.info" = "Uh oh! Looks like we don't have permission to view your photo library!";
 "photos.permissionDenied.fixIt" = "Open Settings";
