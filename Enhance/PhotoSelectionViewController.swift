@@ -35,6 +35,7 @@ final class PhotoSelectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        collectionView?.alwaysBounceVertical = true
         collectionView?.backgroundColor = UIColor(hex: 0x222222)
         collectionView?.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: "thumbnail")
 
