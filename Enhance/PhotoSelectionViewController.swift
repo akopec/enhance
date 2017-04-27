@@ -40,6 +40,13 @@ final class PhotoSelectionViewController: UICollectionViewController {
 
         collectionView?.backgroundColor = UIColor(hex: 0x222222)
         collectionView?.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: "thumbnail")
+
+        if !Settings.hasShownApplicationOnboarding {
+            let onboarding = OnboardingViewController()
+            present(onboarding, animated: true, completion: {
+                Settings.hasShownApplicationOnboarding = true
+            })
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
