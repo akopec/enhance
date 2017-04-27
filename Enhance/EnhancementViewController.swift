@@ -99,8 +99,6 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
         imageView.transform = .identity
 
         if let image = image {
-            print(image.size)
-
             let aspectRatio = image.size.width / image.size.height
             scrollViewHeight.constant = scrollView.bounds.width / aspectRatio
 
