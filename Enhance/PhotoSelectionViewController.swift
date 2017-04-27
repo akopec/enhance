@@ -45,6 +45,9 @@ final class PhotoSelectionViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
+        let photosAuthorized = PHPhotoLibrary.authorizationStatus() == .authorized
+        collectionView?.backgroundView = photosAuthorized ? nil : PermissionDeniedEmptyView()
+
         let options = PHFetchOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         options.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
