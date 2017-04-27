@@ -25,7 +25,7 @@ final class PhotoSelectionViewController: UICollectionViewController {
     init() {
         super.init(collectionViewLayout: CollectionViewLayout())
 
-        title = "Zoom, Enhance!"
+        title = NSLocalizedString("application.name", comment: "")
     }
 
     required init?(coder: NSCoder) {

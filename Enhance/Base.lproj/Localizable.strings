@@ -6,5 +6,6 @@
 
 */
 
+"application.name" = "Zoom, Enhance!";
 "photos.permissionDenied.info" = "Uh oh! Looks like we don't have permission to view your photo library!";
 "photos.permissionDenied.fixIt" = "Open Settings";
