@@ -24,6 +24,7 @@
 		4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */; };
 		4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */; };
 		4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFCB1EAB8C7300065938 /* Font.swift */; };
+		4E5C547E1EB26CEF006F09C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C54801EB26CEF006F09C9 /* Localizable.strings */; };
 		4E68A03C1EB1727A00E40D51 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E68A03B1EB1727A00E40D51 /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTWalsheimPro-BoldOblique.otf"; sourceTree = "<group>"; };
 		4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTWalsheimPro.otf; sourceTree = "<group>"; };
 		4E4CDFCB1EAB8C7300065938 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		4E5C547F1EB26CEF006F09C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E68A03B1EB1727A00E40D51 /* CircleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		82BED942914BA8C67BABB6DC /* Pods-Enhance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enhance.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Enhance/Pods-Enhance.debug.xcconfig"; sourceTree = "<group>"; };
 		A7F16F372B1E49BF27DBD06E /* Pods-Enhance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Enhance.release.xcconfig"; path = "Pods/Target Support Files/Pods-Enhance/Pods-Enhance.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				4E4CDFB01EAB762D00065938 /* Info.plist */,
 				4E4CDFAB1EAB762D00065938 /* Assets.xcassets */,
 				4E4CDFAD1EAB762D00065938 /* LaunchScreen.storyboard */,
+				4E5C54801EB26CEF006F09C9 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				4E4CDFAF1EAB762D00065938 /* LaunchScreen.storyboard in Resources */,
 				4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */,
 				4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */,
+				4E5C547E1EB26CEF006F09C9 /* Localizable.strings in Resources */,
 				4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */,
 				4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */,
 				4E42E3FA1EAD2C6F007BDB95 /* EnhancementViewController.xib in Resources */,
@@ -344,6 +348,14 @@
 				4E4CDFAE1EAB762D00065938 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4E5C54801EB26CEF006F09C9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E5C547F1EB26CEF006F09C9 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
