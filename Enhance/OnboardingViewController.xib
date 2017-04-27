@@ -62,10 +62,10 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="9UE-uH-55k">
-                    <rect key="frame" x="16" y="158.5" width="343" height="239"/>
+                    <rect key="frame" x="16" y="143.5" width="343" height="269.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMg-Z1-ozL">
-                            <rect key="frame" x="0.0" y="0.0" width="343" height="112"/>
+                            <rect key="frame" x="0.0" y="0.0" width="343" height="130.5"/>
                             <string key="text">Zoom,
 Enhance!</string>
                             <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="56"/>
@@ -73,22 +73,22 @@ Enhance!</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="z3z-29-3Ak">
-                            <rect key="frame" x="0.0" y="144" width="343" height="95"/>
+                            <rect key="frame" x="0.0" y="162.5" width="343" height="107"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom in on stuff." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vi-Z6-q9i">
-                                    <rect key="frame" x="0.0" y="0.0" width="343" height="23"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="343" height="27"/>
                                     <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make a GIF of it." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="000-ZC-6yQ">
-                                    <rect key="frame" x="0.0" y="36" width="343" height="23"/>
+                                    <rect key="frame" x="0.0" y="40" width="343" height="27"/>
                                     <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Burn your friends." textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbw-Nk-QAO">
-                                    <rect key="frame" x="0.0" y="72" width="343" height="23"/>
+                                    <rect key="frame" x="0.0" y="80" width="343" height="27"/>
                                     <fontDescription key="fontDescription" name="GTWalsheimPro-BoldOblique" family="GT Walsheim Pro" pointSize="23"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -122,7 +122,7 @@ Enhance!</string>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="48" translatesAutoresizingMaskIntoConstraints="NO" id="8Q2-r5-efB">
                     <rect key="frame" x="32" y="178.5" width="311" height="214"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-film" translatesAutoresizingMaskIntoConstraints="NO" id="RqF-8P-0QS">
                             <rect key="frame" x="117" y="0.0" width="77" height="100"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom, Enhance! needs access to your camera roll otherwise it's literally completely useless." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mL-BU-m1e">
@@ -180,6 +180,6 @@ Enhance!</string>
         </view>
     </objects>
     <resources>
-        <image name="Film" width="77" height="100"/>
+        <image name="icon-film" width="77" height="100"/>
     </resources>
 </document>
