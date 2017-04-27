@@ -80,6 +80,10 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
         return imageView
     }
 
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        continueButton?.isHidden = scrollView.zoomScale <= scrollView.minimumZoomScale
+    }
+
 
     // MARK: - Actions
 
