@@ -114,6 +114,7 @@
 			children = (
 				4E4CDFB71EAB76BD00065938 /* Application */,
 				4E4CDFBA1EAB7BC000065938 /* Screens */,
+				4E68A03A1EB1726C00E40D51 /* Views */,
 				4E4CDFC01EAB7CDD00065938 /* Support */,
 				4E4CDFB61EAB769600065938 /* Resources */,
 			);
@@ -149,7 +150,6 @@
 				4E4CDFBB1EAB7BCB00065938 /* Onboarding */,
 				4E4AD11B1EAD01E2002640CE /* Photo Selection */,
 				4E42E3F61EAD2C59007BDB95 /* Enhancement */,
-				4E68A03A1EB1726C00E40D51 /* Views */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
