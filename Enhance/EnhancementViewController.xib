@@ -13,7 +13,9 @@
             <connections>
                 <outlet property="cancelButton" destination="dar-E5-LbA" id="C9b-S5-PKj"/>
                 <outlet property="continueButton" destination="kmB-eu-BrA" id="Kn9-CM-LW6"/>
-                <outlet property="imageView" destination="Xk8-6x-3Xb" id="EeD-i2-3PV"/>
+                <outlet property="imageView" destination="ytl-Gc-Lq6" id="EZj-9z-WkA"/>
+                <outlet property="scrollView" destination="8ol-bG-dhc" id="KwK-IR-Izy"/>
+                <outlet property="scrollViewHeight" destination="lJ4-w6-07V" id="Qim-Nu-HZQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,9 +24,31 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xk8-6x-3Xb" customClass="EnhancementImageView" customModule="Zoom_" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ol-bG-dhc">
+                    <rect key="frame" x="0.0" y="228" width="375" height="211"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="ytl-Gc-Lq6">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ytl-Gc-Lq6" firstAttribute="top" secondItem="8ol-bG-dhc" secondAttribute="top" id="CXW-5q-p4R"/>
+                        <constraint firstAttribute="trailing" secondItem="ytl-Gc-Lq6" secondAttribute="trailing" id="Gmp-un-Xew"/>
+                        <constraint firstItem="ytl-Gc-Lq6" firstAttribute="leading" secondItem="8ol-bG-dhc" secondAttribute="leading" id="Jco-Z4-3mp"/>
+                        <constraint firstAttribute="height" constant="211" id="lJ4-w6-07V"/>
+                        <constraint firstAttribute="bottom" secondItem="ytl-Gc-Lq6" secondAttribute="bottom" id="sBO-W0-pCl"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="cHK-PB-5vY"/>
+                    </connections>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G0F-49-HL7" userLabel="Upper Overlay View">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
+                    <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.75" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xit-vF-6Tn" userLabel="Lower Overlay View">
+                    <rect key="frame" x="0.0" y="439" width="375" height="228"/>
+                    <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="0.75" colorSpace="calibratedRGB"/>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9bp-KP-QPZ">
                     <rect key="frame" x="131.5" y="605" width="112" height="30"/>
@@ -48,12 +72,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Xk8-6x-3Xb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7y8-Zz-1tZ"/>
+                <constraint firstItem="8ol-bG-dhc" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Dun-W8-2Py"/>
                 <constraint firstItem="9bp-KP-QPZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FAO-oA-u6W"/>
+                <constraint firstAttribute="bottom" secondItem="Xit-vF-6Tn" secondAttribute="bottom" id="HBj-XR-yFA"/>
+                <constraint firstAttribute="trailing" secondItem="8ol-bG-dhc" secondAttribute="trailing" id="Jml-UJ-VvH"/>
                 <constraint firstAttribute="bottom" secondItem="9bp-KP-QPZ" secondAttribute="bottom" constant="32" id="JvH-Dz-Jjb"/>
-                <constraint firstItem="Xk8-6x-3Xb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uy8-Xx-lLF"/>
-                <constraint firstAttribute="trailing" secondItem="Xk8-6x-3Xb" secondAttribute="trailing" id="y0A-ra-Gbn"/>
-                <constraint firstAttribute="bottom" secondItem="Xk8-6x-3Xb" secondAttribute="bottom" id="ymb-FN-Y6r"/>
+                <constraint firstItem="G0F-49-HL7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KRv-1l-ij3"/>
+                <constraint firstAttribute="trailing" secondItem="Xit-vF-6Tn" secondAttribute="trailing" id="Sf9-6k-agc"/>
+                <constraint firstItem="Xit-vF-6Tn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="b17-Ig-jjl"/>
+                <constraint firstItem="G0F-49-HL7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="deF-zG-9F7"/>
+                <constraint firstItem="8ol-bG-dhc" firstAttribute="bottom" secondItem="Xit-vF-6Tn" secondAttribute="top" id="eLy-nc-FdB"/>
+                <constraint firstItem="G0F-49-HL7" firstAttribute="bottom" secondItem="8ol-bG-dhc" secondAttribute="top" id="paH-4f-hHw"/>
+                <constraint firstItem="8ol-bG-dhc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sxU-Ub-pfp"/>
+                <constraint firstAttribute="trailing" secondItem="G0F-49-HL7" secondAttribute="trailing" id="vSx-Ge-TxJ"/>
             </constraints>
         </view>
     </objects>

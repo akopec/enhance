@@ -11,17 +11,21 @@ import Photos
 import ReactiveSwift
 import ReactiveCocoa
 
-final class EnhancementViewController: UIViewController {
+final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
 
     // MARK: - Properties
 
     private let asset: PHAsset
 
+    @IBOutlet private var scrollView: UIScrollView!
+
+    @IBOutlet private var imageView: UIImageView!
+
     @IBOutlet private var cancelButton: UIButton!
 
     @IBOutlet private var continueButton: UIButton!
 
-    @IBOutlet private var imageView: EnhancementImageView!
+    @IBOutlet private var scrollViewHeight: NSLayoutConstraint!
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -45,13 +49,18 @@ final class EnhancementViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        automaticallyAdjustsScrollViewInsets = false
+
         view.backgroundColor = UIColor(hex: 0x222222)
 
-        imageView.reactive.image <~ PHImageManager.default().reactive
+        PHImageManager.default().reactive
             .requestImageData(for: asset)
             .map({ data, _ in UIImage(data: data) })
             .flatMapError({ _ in .empty })
             .observe(on: UIScheduler())
+            .startWithValues({ [weak self] image in
+                self?.updateImage(image)
+            })
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +74,13 @@ final class EnhancementViewController: UIViewController {
     }
 
 
+    // MARK: - UIScrollViewDelegate
+
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+
+
     // MARK: - Actions
 
     @IBAction private func cancel(sender: UIButton) {
@@ -73,5 +89,33 @@ final class EnhancementViewController: UIViewController {
 
     @IBAction private func save(sender: UIButton) {
         print(#function)
+    }
+
+
+    // MARK: - Private
+
+    private func updateImage(_ image: UIImage?) {
+        imageView.image = image
+        imageView.transform = .identity
+
+        if let image = image {
+            print(image.size)
+
+            let aspectRatio = image.size.width / image.size.height
+            scrollViewHeight.constant = scrollView.bounds.width / aspectRatio
+
+            let minimumScale = scrollView.bounds.width / image.size.width
+
+            scrollView.minimumZoomScale = minimumScale
+            scrollView.maximumZoomScale = 1.0
+            scrollView.zoomScale = minimumScale
+        }
+    }
+
+    private func cropRect() -> CGRect {
+        var cropRect = CGRect(origin: scrollView.contentOffset, size: .zero)
+        cropRect.size.width = scrollView.bounds.width / scrollView.zoomScale
+        cropRect.size.height = scrollView.bounds.height / scrollView.zoomScale
+        return cropRect
     }
 }
