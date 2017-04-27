@@ -75,8 +75,8 @@ final class OnboardingViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction private func permissionsButtonTouchUpInside(sender: UIButton) {
-        PHPhotoLibrary.requestAuthorization({ status in
-            print(status)
+        PHPhotoLibrary.requestAuthorization({ [weak self] _ in
+            self?.dismiss(animated: true, completion: nil)
         })
     }
 }
