@@ -8,16 +8,13 @@
 
 import UIKit
 import Photos
+import ReactiveSwift
 
 final class PhotoSelectionViewController: UICollectionViewController {
 
     // MARK: - Properties
 
-    private var fetchResult: PHFetchResult<PHAsset>? {
-        didSet {
-            collectionView?.reloadData()
-        }
-    }
+    private let fetchResult = MutableProperty<PHFetchResult<PHAsset>?>(nil)
 
 
     // MARK: - Initializers
@@ -40,6 +37,13 @@ final class PhotoSelectionViewController: UICollectionViewController {
 
         collectionView?.backgroundColor = UIColor(hex: 0x222222)
         collectionView?.register(ThumbnailCollectionViewCell.self, forCellWithReuseIdentifier: "thumbnail")
+
+        fetchResult.producer
+            .map({ _ in () })
+            .observe(on: UIScheduler())
+            .startWithValues({ [weak collectionView] in
+                collectionView?.reloadData()
+            })
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -51,8 +55,8 @@ final class PhotoSelectionViewController: UICollectionViewController {
         if photosAuthorized {
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-            fetchOptions.predicate = NSPredicate(format: "mediaType == %d", PHAssetMediaType.image.rawValue)
-            fetchResult = PHAsset.fetchAssets(with: fetchOptions)
+            fetchResult <~ PHAsset.reactive
+                .fetchAssets(with: .image, options: fetchOptions)
         }
     }
 
@@ -71,12 +75,12 @@ final class PhotoSelectionViewController: UICollectionViewController {
     // MARK: - UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return fetchResult?.count ?? 0
+        return fetchResult.value?.count ?? 0
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail", for: indexPath) as! ThumbnailCollectionViewCell
-        cell.asset.value = fetchResult?.object(at: indexPath.item)
+        cell.asset.value = fetchResult.value?.object(at: indexPath.item)
         return cell
     }
 
@@ -84,7 +88,7 @@ final class PhotoSelectionViewController: UICollectionViewController {
     // MARK: - UICollectionViewDelegate
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let asset = fetchResult?.object(at: indexPath.item) else { return }
+        guard let asset = fetchResult.value?.object(at: indexPath.item) else { return }
         let viewController = EnhancementViewController(asset: asset)
         navigationController?.pushViewController(viewController, animated: true)
     }
