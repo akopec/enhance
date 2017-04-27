@@ -12,14 +12,20 @@ final class PermissionDeniedEmptyView: UIView {
 
     // MARK: - Properties
 
-    private let imageView = UIImageView()
+    private let imageView = UIImageView(image: UIImage(named: "icon-film"))
 
     private let textLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .white
-        view.font = Font.GTWalsheimPro(size: 18)
-        view.textAlignment = .center
         view.numberOfLines = 0
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.2
+        paragraphStyle.alignment = .center
+        let attributedInfo = NSAttributedString(string: NSLocalizedString("photos.permissionDenied.info", comment: ""), attributes: [
+            NSForegroundColorAttributeName: UIColor.white,
+            NSFontAttributeName: Font.GTWalsheimPro(size: 18),
+            NSParagraphStyleAttributeName: paragraphStyle
+            ])
+        view.attributedText = attributedInfo
         return view
     }()
 
@@ -31,8 +37,8 @@ final class PermissionDeniedEmptyView: UIView {
             NSFontAttributeName: Font.GTWalsheimPro(size: 18)
         ])
         view.setAttributedTitle(attributedTitle, for: .normal)
-        view.contentEdgeInsets = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        view.layer.cornerRadius = 8
+        view.contentEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        view.layer.cornerRadius = 4
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -53,10 +59,6 @@ final class PermissionDeniedEmptyView: UIView {
     // MARK: - Private
 
     private func setup() {
-        imageView.image = UIImage(named: "icon-film")
-
-        textLabel.text = NSLocalizedString("photos.permissionDenied.info", comment: "")
-
         let stackView = UIStackView(arrangedSubviews: [imageView, textLabel, fixItButton])
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -69,7 +71,8 @@ final class PermissionDeniedEmptyView: UIView {
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
             stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            stackView.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, constant: -48)
+            stackView.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, constant: -48),
+            fixItButton.heightAnchor.constraint(equalToConstant: 40)
         ])
 
         fixItButton.addTarget(self, action: #selector(openSettings), for: .touchUpInside)
