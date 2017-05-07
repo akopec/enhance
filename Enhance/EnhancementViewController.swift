@@ -92,7 +92,15 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
     }
 
     @IBAction private func save(sender: UIButton) {
-        print(#function)
+        Enhancer.render(asset: asset, cropRect: cropRect())
+            .startWithResult({ result in
+                switch result {
+                case .success(let images):
+                    print(images)
+                case .failure(let error):
+                    print(error)
+                }
+            })
     }
 
 
