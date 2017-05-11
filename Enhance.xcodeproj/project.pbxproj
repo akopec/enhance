@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45D63D5B864A80C5E5E43224 /* Pods_Enhance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35A629201668C19291D10A4 /* Pods_Enhance.framework */; };
+		4E0A49621EC4A6A400EC4910 /* GIFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */; };
 		4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */; };
 		4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */; };
 		4E42E3FA1EAD2C6F007BDB95 /* EnhancementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFRenderer.swift; sourceTree = "<group>"; };
 		4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+PHImageManager.swift"; sourceTree = "<group>"; };
 		4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancementViewController.swift; sourceTree = "<group>"; };
 		4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnhancementViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				4E5C54891EB28E23006F09C9 /* Enhancer.swift */,
+				4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */,
 				4E5C54841EB27ECA006F09C9 /* Reactive+PHAsset.swift in Sources */,
 				4E5C548A1EB28E23006F09C9 /* Enhancer.swift in Sources */,
+				4E0A49621EC4A6A400EC4910 /* GIFRenderer.swift in Sources */,
 				4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */,
 				4E68A03C1EB1727A00E40D51 /* CircleButton.swift in Sources */,
 				4E4AD1221EAD11FA002640CE /* ThumbnailCollectionViewCell.swift in Sources */,
