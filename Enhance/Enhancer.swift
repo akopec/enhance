@@ -14,7 +14,9 @@ final class Enhancer {
 
     private init() {}
 
-    static func render(asset: PHAsset, cropRect: CGRect, options: Options = Options()) -> SignalProducer<URL, AnyError> {
+    typealias EnhancerResult = (gif: URL, mov: URL)
+
+    static func render(asset: PHAsset, cropRect: CGRect, options: Options = Options()) -> SignalProducer<EnhancerResult, AnyError> {
         return PHImageManager.default().reactive
             .requestImageData(for: asset)
             .attemptMap({ data, _ in
@@ -26,7 +28,14 @@ final class Enhancer {
                 return (image, frames)
             })
             .flatMap(.latest, transform: FrameRenderer.render)
-            .flatMap(.latest, transform: GIFEncoder.encode)
+            .flatMap(.latest, transform: { frames -> SignalProducer<(URL, URL), AnyError> in
+                let gif = GIFEncoder.encode(frames: frames)
+                let mov = MOVEncoder.encode(frames: frames)
+                return SignalProducer.zip(gif, mov)
+            })
+            .map({
+                (gif: $0.0, mov: $0.1)
+            })
     }
 
     private static func extrapolate(startRect: CGRect, finalRect: CGRect, frameCount: Int) -> [CGRect] {
