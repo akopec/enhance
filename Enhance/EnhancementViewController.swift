@@ -123,9 +123,11 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
     }
 
     private func cropRect() -> CGRect {
-        var cropRect = CGRect(origin: scrollView.contentOffset, size: .zero)
-        cropRect.size.width = scrollView.bounds.width / scrollView.zoomScale
-        cropRect.size.height = scrollView.bounds.height / scrollView.zoomScale
+        var cropRect = scrollView.bounds
+        cropRect.origin.x /= scrollView.zoomScale
+        cropRect.origin.y /= scrollView.zoomScale
+        cropRect.size.width /= scrollView.zoomScale
+        cropRect.size.height /= scrollView.zoomScale
         return cropRect
     }
 }
