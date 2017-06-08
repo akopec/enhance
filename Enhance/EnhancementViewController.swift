@@ -93,10 +93,14 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction private func save(sender: UIButton) {
         Enhancer.render(asset: asset, cropRect: cropRect())
-            .startWithResult({ result in
+            .startWithResult({ [weak self] result in
                 switch result {
                 case .success(let url):
-                    print(url)
+                    guard let navigationController = self?.navigationController else {
+                        return
+                    }
+                    let viewController = ShareResultViewController(subjectURL: url)
+                    navigationController.pushViewController(viewController, animated: true)
                 case .failure(let error):
                     print(error)
                 }

@@ -26,6 +26,7 @@
 		4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFCB1EAB8C7300065938 /* Font.swift */; };
 		4E579CD61EE98FB9006B9DEE /* FrameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E579CD51EE98FB9006B9DEE /* FrameRenderer.swift */; };
 		4E579CD81EE9920A006B9DEE /* GIFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E579CD71EE9920A006B9DEE /* GIFEncoder.swift */; };
+		4E579CDB1EE9BB5F006B9DEE /* ShareResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E579CDA1EE9BB5F006B9DEE /* ShareResultViewController.swift */; };
 		4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */; };
 		4E5C547E1EB26CEF006F09C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C54801EB26CEF006F09C9 /* Localizable.strings */; };
 		4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C54811EB276ED006F09C9 /* Settings.swift */; };
@@ -55,6 +56,7 @@
 		4E4CDFCB1EAB8C7300065938 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		4E579CD51EE98FB9006B9DEE /* FrameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameRenderer.swift; sourceTree = "<group>"; };
 		4E579CD71EE9920A006B9DEE /* GIFEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
+		4E579CDA1EE9BB5F006B9DEE /* ShareResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareResultViewController.swift; sourceTree = "<group>"; };
 		4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionDeniedEmptyView.swift; sourceTree = "<group>"; };
 		4E5C547F1EB26CEF006F09C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E5C54811EB276ED006F09C9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				4E4CDFBB1EAB7BCB00065938 /* Onboarding */,
 				4E4AD11B1EAD01E2002640CE /* Photo Selection */,
 				4E42E3F61EAD2C59007BDB95 /* Enhancement */,
+				4E579CD91EE9BB38006B9DEE /* Share */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -188,6 +191,14 @@
 				4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		4E579CD91EE9BB38006B9DEE /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				4E579CDA1EE9BB5F006B9DEE /* ShareResultViewController.swift */,
+			);
+			name = Share;
 			sourceTree = "<group>";
 		};
 		4E5C54881EB28E11006F09C9 /* Models */ = {
@@ -356,6 +367,7 @@
 				4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */,
 				4E579CD81EE9920A006B9DEE /* GIFEncoder.swift in Sources */,
 				4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */,
+				4E579CDB1EE9BB5F006B9DEE /* ShareResultViewController.swift in Sources */,
 				4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
 				4E4CDFB91EAB7A4300065938 /* Color.swift in Sources */,
