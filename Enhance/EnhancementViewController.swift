@@ -95,8 +95,8 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
         Enhancer.render(asset: asset, cropRect: cropRect())
             .startWithResult({ result in
                 switch result {
-                case .success(let images):
-                    print(images)
+                case .success(let url):
+                    print(url)
                 case .failure(let error):
                     print(error)
                 }

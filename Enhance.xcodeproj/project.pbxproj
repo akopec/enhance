@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		45D63D5B864A80C5E5E43224 /* Pods_Enhance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35A629201668C19291D10A4 /* Pods_Enhance.framework */; };
-		4E0A49621EC4A6A400EC4910 /* GIFRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */; };
 		4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */; };
 		4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */; };
 		4E42E3FA1EAD2C6F007BDB95 /* EnhancementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */; };
@@ -25,6 +24,8 @@
 		4E4CDFC61EAB82AE00065938 /* GTWalsheimPro-BoldOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */; };
 		4E4CDFC71EAB82B000065938 /* GTWalsheimPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */; };
 		4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4CDFCB1EAB8C7300065938 /* Font.swift */; };
+		4E579CD61EE98FB9006B9DEE /* FrameRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E579CD51EE98FB9006B9DEE /* FrameRenderer.swift */; };
+		4E579CD81EE9920A006B9DEE /* GIFEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E579CD71EE9920A006B9DEE /* GIFEncoder.swift */; };
 		4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */; };
 		4E5C547E1EB26CEF006F09C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E5C54801EB26CEF006F09C9 /* Localizable.strings */; };
 		4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E5C54811EB276ED006F09C9 /* Settings.swift */; };
@@ -34,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFRenderer.swift; sourceTree = "<group>"; };
 		4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+PHImageManager.swift"; sourceTree = "<group>"; };
 		4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancementViewController.swift; sourceTree = "<group>"; };
 		4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnhancementViewController.xib; sourceTree = "<group>"; };
@@ -53,6 +53,8 @@
 		4E4CDFC41EAB82A200065938 /* GTWalsheimPro-BoldOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTWalsheimPro-BoldOblique.otf"; sourceTree = "<group>"; };
 		4E4CDFC51EAB82A200065938 /* GTWalsheimPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GTWalsheimPro.otf; sourceTree = "<group>"; };
 		4E4CDFCB1EAB8C7300065938 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		4E579CD51EE98FB9006B9DEE /* FrameRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameRenderer.swift; sourceTree = "<group>"; };
+		4E579CD71EE9920A006B9DEE /* GIFEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GIFEncoder.swift; sourceTree = "<group>"; };
 		4E5C547A1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionDeniedEmptyView.swift; sourceTree = "<group>"; };
 		4E5C547F1EB26CEF006F09C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4E5C54811EB276ED006F09C9 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -192,7 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				4E5C54891EB28E23006F09C9 /* Enhancer.swift */,
-				4E0A49611EC4A6A400EC4910 /* GIFRenderer.swift */,
+				4E579CD51EE98FB9006B9DEE /* FrameRenderer.swift */,
+				4E579CD71EE9920A006B9DEE /* GIFEncoder.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -348,8 +351,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E579CD61EE98FB9006B9DEE /* FrameRenderer.swift in Sources */,
 				4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */,
 				4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */,
+				4E579CD81EE9920A006B9DEE /* GIFEncoder.swift in Sources */,
 				4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */,
 				4E5C547B1EB26A28006F09C9 /* PermissionDeniedEmptyView.swift in Sources */,
 				4E4CDFA51EAB762D00065938 /* AppDelegate.swift in Sources */,
@@ -357,7 +362,6 @@
 				4E4CDFCC1EAB8C7300065938 /* Font.swift in Sources */,
 				4E5C54841EB27ECA006F09C9 /* Reactive+PHAsset.swift in Sources */,
 				4E5C548A1EB28E23006F09C9 /* Enhancer.swift in Sources */,
-				4E0A49621EC4A6A400EC4910 /* GIFRenderer.swift in Sources */,
 				4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */,
 				4E68A03C1EB1727A00E40D51 /* CircleButton.swift in Sources */,
 				4E4AD1221EAD11FA002640CE /* ThumbnailCollectionViewCell.swift in Sources */,

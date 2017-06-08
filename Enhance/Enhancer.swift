@@ -14,38 +14,22 @@ final class Enhancer {
 
     private init() {}
 
-    static func render(asset: PHAsset, cropRect: CGRect, options: Options = Options()) -> SignalProducer<[UIImage], AnyError> {
+    static func render(asset: PHAsset, cropRect: CGRect, options: Options = Options()) -> SignalProducer<URL, AnyError> {
         return PHImageManager.default().reactive
             .requestImageData(for: asset)
             .attemptMap({ data, _ in
                 return Result(UIImage(data: data), failWith: AnyError(URLError(.unknown)))
             })
-            .map({ image in
-                slice(image: image, finalRect: cropRect, options: options)
+            .map({ (image: UIImage) -> (UIImage, [CGRect]) in
+                let startRect = CGRect(origin: .zero, size: image.size)
+                let frames = extrapolate(startRect: startRect, finalRect: cropRect, frameCount: options.frameCount)
+                return (image, frames)
             })
+            .flatMap(.latest, transform: FrameRenderer.render)
+            .flatMap(.latest, transform: GIFEncoder.encode)
     }
 
-    private static func slice(image: UIImage, finalRect: CGRect, options: Options) -> [UIImage] {
-        guard let cgImage = image.cgImage else {
-            return []
-        }
-
-        var slicedImages = [image]
-        let startRect = CGRect(origin: .zero, size: image.size)
-        let frames = extrapolate(startRect: startRect, finalRect: finalRect, frameCount: options.frameCount)
-            .suffix(from: 1)
-
-        for frame in frames {
-            guard let cropped = cgImage.cropping(to: frame).map(UIImage.init) else {
-                return []
-            }
-            slicedImages.append(cropped)
-        }
-
-        return slicedImages
-    }
-
-    static func extrapolate(startRect: CGRect, finalRect: CGRect, frameCount: Int) -> [CGRect] {
+    private static func extrapolate(startRect: CGRect, finalRect: CGRect, frameCount: Int) -> [CGRect] {
         var frames = [CGRect]()
 
         let dX = finalRect.origin.x - startRect.origin.x
