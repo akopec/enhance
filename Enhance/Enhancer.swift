@@ -45,7 +45,7 @@ final class Enhancer {
             let wPrime = startRect.size.width - (dW * progress)
             let hPrime = startRect.size.height - (dH * progress)
 
-            frames.append(CGRect(x: xPrime, y: yPrime, width: wPrime, height: hPrime))
+            frames.append(CGRect(x: xPrime, y: yPrime, width: wPrime, height: hPrime).integral)
         }
         
         return frames
