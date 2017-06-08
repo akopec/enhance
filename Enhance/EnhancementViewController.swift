@@ -93,6 +93,7 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
 
     @IBAction private func save(sender: UIButton) {
         Enhancer.render(asset: asset, cropRect: cropRect())
+            .observe(on: UIScheduler())
             .startWithResult({ [weak self] result in
                 switch result {
                 case .success(let url):
