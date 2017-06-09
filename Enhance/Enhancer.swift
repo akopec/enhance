@@ -10,7 +10,7 @@ import Photos
 import Result
 import ReactiveSwift
 
-typealias EnhancerResult = (gif: URL, mov: URL)
+typealias EnhancerResult = (gif: URL, mov: URL, aspectRatio: CGFloat)
 
 final class Enhancer {
 
@@ -34,7 +34,7 @@ final class Enhancer {
                 return SignalProducer.zip(gif, mov)
             })
             .map({
-                (gif: $0.0, mov: $0.1)
+                (gif: $0.0, mov: $0.1, aspectRatio: cropRect.width / cropRect.height)
             })
     }
 
