@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		45D63D5B864A80C5E5E43224 /* Pods_Enhance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35A629201668C19291D10A4 /* Pods_Enhance.framework */; };
+		4E3E23E61EEAD7C4009A1A8C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E23E51EEAD7C4009A1A8C /* PreviewView.swift */; };
 		4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */; };
 		4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */; };
 		4E42E3FA1EAD2C6F007BDB95 /* EnhancementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3E23E51EEAD7C4009A1A8C /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+PHImageManager.swift"; sourceTree = "<group>"; };
 		4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancementViewController.swift; sourceTree = "<group>"; };
 		4E42E3F81EAD2C6F007BDB95 /* EnhancementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnhancementViewController.xib; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				4E68A03B1EB1727A00E40D51 /* CircleButton.swift */,
+				4E3E23E51EEAD7C4009A1A8C /* PreviewView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				4E579CD61EE98FB9006B9DEE /* FrameRenderer.swift in Sources */,
 				4E4AD11D1EAD0219002640CE /* PhotoSelectionViewController.swift in Sources */,
+				4E3E23E61EEAD7C4009A1A8C /* PreviewView.swift in Sources */,
 				4E4AD11F1EAD0301002640CE /* UIColor.swift in Sources */,
 				4E579CD81EE9920A006B9DEE /* GIFEncoder.swift in Sources */,
 				4E5C54821EB276ED006F09C9 /* Settings.swift in Sources */,
