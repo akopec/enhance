@@ -86,12 +86,12 @@ final class EnhancementViewController: UIViewController, UIScrollViewDelegate {
             .observe(on: UIScheduler())
             .startWithResult({ [weak self] result in
                 switch result {
-                case .success(let gif, let mov):
-                    print(gif, mov)
+                case .success(let result):
+                    print(result)
                     guard let navigationController = self?.navigationController else {
                         return
                     }
-                    let viewController = ShareResultViewController(subjectURL: mov)
+                    let viewController = ResultViewController(result: result)
                     navigationController.pushViewController(viewController, animated: true)
                 case .failure(let error):
                     print(error)
