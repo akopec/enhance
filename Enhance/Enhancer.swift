@@ -10,11 +10,11 @@ import Photos
 import Result
 import ReactiveSwift
 
+typealias EnhancerResult = (gif: URL, mov: URL)
+
 final class Enhancer {
 
     private init() {}
-
-    typealias EnhancerResult = (gif: URL, mov: URL)
 
     static func render(asset: PHAsset, cropRect: CGRect, options: Options = Options()) -> SignalProducer<EnhancerResult, AnyError> {
         return PHImageManager.default().reactive
