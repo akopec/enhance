@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		45D63D5B864A80C5E5E43224 /* Pods_Enhance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B35A629201668C19291D10A4 /* Pods_Enhance.framework */; };
+		4E3E23E31EEAD585009A1A8C /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E23E11EEAD585009A1A8C /* ResultViewController.swift */; };
+		4E3E23E41EEAD585009A1A8C /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E3E23E21EEAD585009A1A8C /* ResultViewController.xib */; };
 		4E3E23E61EEAD7C4009A1A8C /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3E23E51EEAD7C4009A1A8C /* PreviewView.swift */; };
 		4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */; };
 		4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E3E23E11EEAD585009A1A8C /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		4E3E23E21EEAD585009A1A8C /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		4E3E23E51EEAD7C4009A1A8C /* PreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		4E42E3F41EAD1F36007BDB95 /* Reactive+PHImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+PHImageManager.swift"; sourceTree = "<group>"; };
 		4E42E3F71EAD2C6F007BDB95 /* EnhancementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnhancementViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 			isa = PBXGroup;
 			children = (
 				4E579CDA1EE9BB5F006B9DEE /* ShareResultViewController.swift */,
+				4E3E23E11EEAD585009A1A8C /* ResultViewController.swift */,
+				4E3E23E21EEAD585009A1A8C /* ResultViewController.xib */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				4E4CDFAC1EAB762D00065938 /* Assets.xcassets in Resources */,
 				4E4CDFBF1EAB7BED00065938 /* OnboardingViewController.xib in Resources */,
 				4E42E3FA1EAD2C6F007BDB95 /* EnhancementViewController.xib in Resources */,
+				4E3E23E41EEAD585009A1A8C /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +391,7 @@
 				4E5C548A1EB28E23006F09C9 /* Enhancer.swift in Sources */,
 				4E42E3F91EAD2C6F007BDB95 /* EnhancementViewController.swift in Sources */,
 				4E68A03C1EB1727A00E40D51 /* CircleButton.swift in Sources */,
+				4E3E23E31EEAD585009A1A8C /* ResultViewController.swift in Sources */,
 				4E4AD1221EAD11FA002640CE /* ThumbnailCollectionViewCell.swift in Sources */,
 				4E4CDFBE1EAB7BED00065938 /* OnboardingViewController.swift in Sources */,
 				4E42E3F51EAD1F36007BDB95 /* Reactive+PHImageManager.swift in Sources */,

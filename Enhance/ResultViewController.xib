@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12120"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultViewController" customModule="Zoom_" customModuleProvider="target">
+            <connections>
+                <outlet property="previewView" destination="qzP-Vl-BQR" id="o4k-gZ-biI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YG1-n7-pUu" userLabel="Preview Container">
+                    <rect key="frame" x="32" y="32" width="311" height="400"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzP-Vl-BQR" customClass="PreviewView" customModule="Zoom_" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="100" width="311" height="200"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="200" placeholder="YES" id="buY-S9-OnX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="qzP-Vl-BQR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="YG1-n7-pUu" secondAttribute="top" id="9zh-oN-36p"/>
+                        <constraint firstAttribute="trailing" secondItem="qzP-Vl-BQR" secondAttribute="trailing" id="Z7S-PS-t7P"/>
+                        <constraint firstItem="qzP-Vl-BQR" firstAttribute="centerY" secondItem="YG1-n7-pUu" secondAttribute="centerY" id="brF-xB-DJZ"/>
+                        <constraint firstItem="qzP-Vl-BQR" firstAttribute="leading" secondItem="YG1-n7-pUu" secondAttribute="leading" id="huc-lr-Ql5"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qzP-Vl-BQR" secondAttribute="bottom" id="kDc-YJ-v3d"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.13333333333333333" green="0.13333333333333333" blue="0.13333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="YG1-n7-pUu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="32" id="G30-az-1WK"/>
+                <constraint firstItem="YG1-n7-pUu" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="ad5-nh-lHk"/>
+                <constraint firstAttribute="trailing" secondItem="YG1-n7-pUu" secondAttribute="trailing" constant="32" id="r6E-jA-VKY"/>
+                <constraint firstItem="YG1-n7-pUu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="wNw-3k-HxB"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
