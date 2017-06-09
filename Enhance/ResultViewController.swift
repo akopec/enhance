@@ -38,10 +38,20 @@ final class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let constraint = previewView.widthAnchor.constraint(equalTo: previewView.heightAnchor, multiplier: result.aspectRatio)
+        constraint.priority = UILayoutPriorityDefaultHigh
+
         NSLayoutConstraint.activate([
-            previewView.widthAnchor.constraint(equalTo: previewView.heightAnchor, multiplier: result.aspectRatio)
+            constraint
         ])
 
         previewView.videoURL = result.mov
+    }
+
+
+    // MARK: - Private
+
+    @IBAction private func done(sender: UIControl) {
+        dismiss(animated: true, completion: nil)
     }
 }
