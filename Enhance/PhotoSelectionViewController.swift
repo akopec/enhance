@@ -91,7 +91,9 @@ final class PhotoSelectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let asset = fetchResult.value?.object(at: indexPath.item) else { return }
         let viewController = EnhancementViewController(asset: asset)
-        navigationController?.pushViewController(viewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.isNavigationBarHidden = true
+        present(navigationController, animated: true, completion: nil)
     }
 }
 
