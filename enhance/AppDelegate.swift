@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        window = UIWindow(frame:UIScreen.mainScreen().bounds)
+        window = UIWindow(frame: UIScreen.main.bounds)
 
-        if PHPhotoLibrary.authorizationStatus() == .Authorized {
+        if PHPhotoLibrary.authorizationStatus() == .authorized {
             let nav = UINavigationController(rootViewController: PickerViewController())
             window!.rootViewController = nav
         } else {
@@ -28,15 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window!.rootViewController = onboard
         }
 
-        GAI.sharedInstance().trackerWithTrackingId("UA-72239257-1")
+        GAI.sharedInstance().tracker(withTrackingId: "UA-72239257-1")
         GAI.sharedInstance().trackUncaughtExceptions = true
         //GAI.sharedInstance().logger.logLevel = .Verbose
         
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = kEnhanceTealColor
         UINavigationBar.appearance().titleTextAttributes = [
-            NSFontAttributeName: UIFont(name: "GTWalsheimPro-BoldOblique", size: 22.0)!,
-            NSForegroundColorAttributeName: UIColor.whiteColor()
+            NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro-BoldOblique", size: 22.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         
         window!.makeKeyAndVisible()
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        NSNotificationCenter.defaultCenter().postNotificationName("DidBecomeActive", object: nil)
+        NotificationCenter.default.post(name: UIApplication.didBecomeActiveNotification, object: nil)
     }
 
     func applicationWillTerminate(application: UIApplication) {

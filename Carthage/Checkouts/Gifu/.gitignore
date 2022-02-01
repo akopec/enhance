@@ -13,6 +13,7 @@ xcuserdata
 
 # Build products
 build/
+.build/
 *.o
 *.LinkFileList
 *.hmap
@@ -36,4 +37,5 @@ Carthage/Build
 
 Gifu.framework.zip
 *.xcscmblueprint
-docs/
+
+.swiftpm/

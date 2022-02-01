@@ -12,27 +12,27 @@ import UIKit
 class Utils {
     
     class func centerView(view: UIView) {
-        view.frame = CGRectMake((kScreenWidth / 2.0) - (view.frame.width / 2.0), (kScreenHeight / 2.0) - (view.frame.height / 2.0), view.frame.width, view.frame.height)
+        view.frame = CGRect(x: (kScreenWidth / 2.0) - (view.frame.width / 2.0), y: (kScreenHeight / 2.0) - (view.frame.height / 2.0), width: view.frame.width, height: view.frame.height)
     }
     
     class func changeFrameX(view: UIView, value: CGFloat) {
-        view.frame = CGRectMake(value, view.frame.origin.y, view.frame.width, view.frame.height)
+        view.frame = CGRect(x: value, y: view.frame.origin.y, width: view.frame.width, height: view.frame.height)
     }
     
     class func changeFrameY(view: UIView, value: CGFloat) {
-        view.frame = CGRectMake(view.frame.origin.x, value, view.frame.width, view.frame.height)
+        view.frame = CGRect(x: view.frame.origin.x, y: value, width: view.frame.width, height: view.frame.height)
     }
     
     class func changeFrameWidth(view: UIView, value: CGFloat) {
-        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, value, view.frame.height)
+        view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: value, height: view.frame.height)
     }
     
     class func changeFrameHeight(view: UIView, value: CGFloat) {
-        view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.width, value)
+        view.frame = CGRect(x: view.frame.origin.x, y: view.frame.origin.y, width: view.frame.width, height: value)
     }
     
     class func sendAnalyticEvent(name: String) {
-        let event = GAIDictionaryBuilder.createEventWithCategory("action", action: name, label: "", value: NSNumber(int: 0))
+        guard let event = GAIDictionaryBuilder.createEvent(withCategory: "action", action: name, label: "", value: NSNumber(value: 0)) else { return }
         GAI.sharedInstance().defaultTracker.send(event.build() as [NSObject : AnyObject])
     }
     
@@ -41,17 +41,15 @@ class Utils {
 extension String {
     
     func escapeStr() -> String {
-        let raw: NSString = self
-        let str = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,raw,"[].",":/?&=;+!@#$()',*",CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))
-        return str as String
+        return self.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
     }
 }
 
 extension String {
     
     func URLEncodedString() -> String? {
-        let customAllowedSet =  NSCharacterSet.URLQueryAllowedCharacterSet()
-        let escapedString = self.stringByAddingPercentEncodingWithAllowedCharacters(customAllowedSet)
+        let customAllowedSet =  NSCharacterSet.urlQueryAllowed
+        let escapedString = self.addingPercentEncoding(withAllowedCharacters: customAllowedSet)
         return escapedString
     }
     static func queryStringFromParameters(parameters: Dictionary<String,String>) -> String? {

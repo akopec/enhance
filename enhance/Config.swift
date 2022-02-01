@@ -9,8 +9,8 @@
 import UIKit
 
 let kResultWidth = 320
-let kScreenWidth = UIScreen.mainScreen().bounds.width
-let kScreenHeight = UIScreen.mainScreen().bounds.height
+let kScreenWidth = UIScreen.main.bounds.width
+let kScreenHeight = UIScreen.main.bounds.height
 
 let kEnhanceOpacTealColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 0.75)
 let kEnhanceTealColor = UIColor(red: 80.0/255.0, green: 227.0/255.0, blue: 194.0/255.0, alpha: 1.0)

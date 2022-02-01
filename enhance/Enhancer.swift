@@ -16,16 +16,20 @@ import Photos
 import CoreImage
 
 class EnhanceResult {
-    var gifLocation: NSURL?
-    var videoLocation: NSURL?
-    var videoLibraryLocation: NSURL?
+    var gifLocation: URL?
+    var videoLocation: URL?
+    var videoLibraryLocation: URL?
     
     init() {
         
     }
 
     func copyToPasteboard() {
-        UIPasteboard.generalPasteboard().setData(NSData(contentsOfURL: gifLocation!)!, forPasteboardType: kUTTypeGIF as String)
+        do {
+            try UIPasteboard.general.setData(Data(contentsOf: gifLocation!), forPasteboardType: kUTTypeGIF as String)
+        } catch {
+            print("Unable to copy gif to pasteboard: \(error)")
+        }
     }
     
     var assetCollectionPlaceholder: PHObjectPlaceholder!
@@ -35,25 +39,25 @@ class EnhanceResult {
     func _createVideoAlbum() {
         let fetchOptions = PHFetchOptions()
         fetchOptions.predicate = NSPredicate(format: "title = %@", "ZoomEnhance")
-        let collection : PHFetchResult = PHAssetCollection.fetchAssetCollectionsWithType(.Album, subtype: .Any, options: fetchOptions)
+        let collection : PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: fetchOptions)
         
         if let _ = collection.firstObject {
             self.albumFound = true
             assetCollection = collection.firstObject as! PHAssetCollection
         } else {
-            let _ = try? PHPhotoLibrary.sharedPhotoLibrary().performChangesAndWait({
-                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollectionWithTitle("ZoomEnhance")
+            let _ = try? PHPhotoLibrary.shared().performChangesAndWait({
+                let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: "ZoomEnhance")
                 self.assetCollectionPlaceholder = createAlbumRequest.placeholderForCreatedAssetCollection
                 
 
             })
             
-            let collectionFetchResult = PHAssetCollection.fetchAssetCollectionsWithLocalIdentifiers([self.assetCollectionPlaceholder.localIdentifier], options: nil)
+            let collectionFetchResult = PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [self.assetCollectionPlaceholder.localIdentifier], options: nil)
             self.assetCollection = collectionFetchResult.firstObject as! PHAssetCollection
         }
     }
     
-    func saveVideo(callback: ((NSURL) -> Void)?) {
+    func saveVideo(callback: ((URL?) -> Void)?) {
         /*
         self._createVideoAlbum()
 
@@ -78,7 +82,7 @@ class EnhanceResult {
         */
         
         
-        ALAssetsLibrary().writeVideoAtPathToSavedPhotosAlbum(videoLocation!) { (url, error) -> Void in
+        ALAssetsLibrary().writeVideoAtPath(toSavedPhotosAlbum: videoLocation!) { (url, error) -> Void in
             self.videoLibraryLocation = url
             callback?(url)
         }
@@ -104,23 +108,23 @@ class Enhancer {
         result = EnhanceResult()
     }
     
-    func process(finished: ((EnhanceResult) -> Void)) {
+    func process(finished: @escaping ((EnhanceResult) -> Void)) {
         
         callback = finished
         
-        var images = [self.imageToWidth(original, width: CGFloat(width))]
+        var images = [self.imageToWidth(image: original, width: CGFloat(width))]
         var last: UIImage?
         for i in 1..<frameCount+1 {
-            last = self.imageForFrame(i)
+            last = self.imageForFrame(num: i)
             images.append(last!)
         }
         
-        images.append(self.sharpen(last!, amount: 0.6))
-        images.append(self.sharpen(last!, amount: 1.5))
-        images.append(self.sharpen(last!, amount: 2.5))
+        images.append(self.sharpen(image: last!, amount: 0.6))
+        images.append(self.sharpen(image: last!, amount: 1.5))
+        images.append(self.sharpen(image: last!, amount: 2.5))
         
-        self.gif(images)
-        self.video(images)
+        self.gif(images: images)
+        self.video(images: images)
     }
     
     func sharpen(image: UIImage, amount: Double) -> UIImage {
@@ -139,23 +143,20 @@ class Enhancer {
         
         let out = filter.outputImage!
         let context = CIContext(options: nil)
-        let cg = context.createCGImage(out, fromRect: out.extent)
-  
-        return UIImage(CGImage: cg)
-
-
+        let cg = context.createCGImage(out, from: out.extent)!
+        return UIImage(cgImage: cg)
     }
 
     func gif(images: [UIImage]) {
         
         let fileProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFLoopCount as String: 0]]
         var frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 0.15]]
-        
-        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("enhance.gif")
-        let _ = try? NSFileManager.defaultManager().removeItemAtPath(url.path!)
 
-        let destination = CGImageDestinationCreateWithURL(url, kUTTypeGIF, images.count, nil)!
-        CGImageDestinationSetProperties(destination, fileProperties)
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("enhance.gif")
+        let _ = try? FileManager.default.removeItem(atPath: url.path)
+
+        let destination = CGImageDestinationCreateWithURL(url as CFURL, kUTTypeGIF, images.count, nil)!
+        CGImageDestinationSetProperties(destination, fileProperties as CFDictionary)
         for i in 0..<images.count {
             if i == images.count-1 {
                 frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 1.7]]
@@ -164,9 +165,8 @@ class Enhancer {
             } else {
                 frameProperties = [kCGImagePropertyGIFDictionary as String: [kCGImagePropertyGIFDelayTime as String: 0.15]]
             }
-            let cgi = images[i].CGImage
-            print(cgi)
-            CGImageDestinationAddImage(destination, cgi!, frameProperties)
+            let cgi = images[i].cgImage
+            CGImageDestinationAddImage(destination, cgi!, frameProperties as CFDictionary)
         }
         
         if CGImageDestinationFinalize(destination) {
@@ -176,82 +176,81 @@ class Enhancer {
     }
     
     func video(images: [UIImage]) {
-        let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).URLByAppendingPathComponent("enhance.mov")
-        let _ = try? NSFileManager.defaultManager().removeItemAtPath(url.path!)
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("enhance.mov")
+        let _ = try? FileManager.default.removeItem(atPath: url.path)
         
-        let writter = try? AVAssetWriter(URL: url, fileType: AVFileTypeQuickTimeMovie)
-        let inputSettings: [String: AnyObject] = [AVVideoCodecKey: AVVideoCodecH264, AVVideoWidthKey: Int(images[0].size.width), AVVideoHeightKey: Int(images[0].size.height)]
-        let input = AVAssetWriterInput(mediaType: AVMediaTypeVideo, outputSettings: inputSettings)
+        let writter = try? AVAssetWriter(outputURL: url, fileType: AVFileType.mov)
+        let inputSettings: [String: Any] = [AVVideoCodecKey: AVVideoCodecType.h264, AVVideoWidthKey: Int(images[0].size.width), AVVideoHeightKey: Int(images[0].size.height)]
+        let input = AVAssetWriterInput(mediaType: AVMediaType.video, outputSettings: inputSettings)
         
-        writter!.addInput(input)
+        writter!.add(input)
         
-        let bufferSettings: [String: AnyObject]  = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32ARGB)]
+        let bufferSettings: [String: Any]  = [kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32ARGB)]
         let bufferAdapter = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input, sourcePixelBufferAttributes: bufferSettings)
         
-        let frameTime = CMTimeMake(1, 6)
-        
-        
+        let frameTime = CMTimeMake(value: 1, timescale: 6)
+
         writter!.startWriting()
-        writter!.startSessionAtSourceTime(kCMTimeZero)
+        writter!.startSession(atSourceTime: CMTime.zero)
         
-        let inputQueue = dispatch_queue_create("inputQueue", nil)
+        let inputQueue = DispatchQueue(__label: "inputQueue", attr: nil)
         
         var i = 0
         var iterImages = images
         iterImages.append(images.last!)
-        input.requestMediaDataWhenReadyOnQueue(inputQueue) { () -> Void in
+        input.requestMediaDataWhenReady(on: inputQueue) { () -> Void in
             while true {
                 if i >= iterImages.count {
                     break
                 }
                 
-                if input.readyForMoreMediaData {
+                if input.isReadyForMoreMediaData {
                     let img = iterImages[i]
-                    if let imgBuffer = self._pixelBufferFromImage(img) {
-                        var cTime = kCMTimeZero
+                    if let imgBuffer = self._pixelBufferFromImage(img: img) {
+                        var cTime = CMTime.zero
                         if (i == iterImages.count-1) {
-                            cTime = CMTimeAdd(CMTimeMake(Int64(i-1), frameTime.timescale), CMTimeMake(1, 1))
+                            cTime = CMTimeAdd(CMTimeMake(value: Int64(i-1), timescale: frameTime.timescale), CMTimeMake(value: 1, timescale: 1))
                         } else {
-                            cTime = CMTimeAdd(CMTimeMake(Int64(i-1), frameTime.timescale), frameTime)
+                            cTime = CMTimeAdd(CMTimeMake(value: Int64(i-1), timescale: frameTime.timescale), frameTime)
                         }
 
-                        bufferAdapter.appendPixelBuffer(imgBuffer, withPresentationTime: cTime)
-                        i++
+                        bufferAdapter.append(imgBuffer, withPresentationTime: cTime)
+                        i += 1
                     }
                 }
             }
             
             input.markAsFinished()
-            writter!.finishWritingWithCompletionHandler({ () -> Void in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            writter!.finishWriting(completionHandler: { () -> Void in
+                DispatchQueue.main.async {
                     self.result.videoLocation = url
                     self.callback!(self.result)
-                })
+                }
             })
         }
     }
     
-    func _pixelBufferFromImage(img: UIImage) -> CVPixelBufferRef? {
+    func _pixelBufferFromImage(img: UIImage) -> CVPixelBuffer? {
         let opt: [String: AnyObject] = [
-            kCVPixelBufferCGImageCompatibilityKey as String: NSNumber(bool: true),
-            kCVPixelBufferCGBitmapContextCompatibilityKey as String: NSNumber(bool: true)
+            kCVPixelBufferCGImageCompatibilityKey as String: NSNumber(value: true),
+            kCVPixelBufferCGBitmapContextCompatibilityKey as String: NSNumber(value: true)
         ]
        
-        var buffer: CVPixelBufferRef? = nil
-        if CVPixelBufferCreate(kCFAllocatorDefault, Int(img.size.width), Int(globalHeight!), kCVPixelFormatType_32ARGB, opt, &buffer) != kCVReturnSuccess {
+        var buffer: CVPixelBuffer? = nil
+        if CVPixelBufferCreate(kCFAllocatorDefault, Int(img.size.width), Int(globalHeight!), kCVPixelFormatType_32ARGB, opt as CFDictionary, &buffer) != kCVReturnSuccess {
             //failure
         }
-        
-        CVPixelBufferLockBaseAddress(buffer!, 0)
+
+        CVPixelBufferLockBaseAddress(buffer!, CVPixelBufferLockFlags.init(rawValue: 0))
         let data = CVPixelBufferGetBaseAddress(buffer!)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        let context = CGBitmapContextCreate(data, Int(img.size.width), Int(img.size.height), 8, 4 * Int(img.size.width), colorSpace, CGImageAlphaInfo.NoneSkipFirst.rawValue)
-        
-        CGContextConcatCTM(context, CGAffineTransformIdentity)
-        CGContextDrawImage(context, CGRectMake(0, 0, img.size.width, img.size.height), img.CGImage!)
+        let context = CGContext(data: data, width: Int(img.size.width), height: Int(img.size.height), bitsPerComponent: 8, bytesPerRow: 4 * Int(img.size.width), space: colorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)!
 
-        CVPixelBufferUnlockBaseAddress(buffer!, 0)
+        context.concatenate(.identity)
+        context.draw(img.cgImage!, in: .init(x: 0, y: 0, width: img.size.width, height: img.size.height))
+
+        CVPixelBufferUnlockBaseAddress(buffer!, CVPixelBufferLockFlags.init(rawValue: 0))
         
         return buffer
     }
@@ -261,16 +260,16 @@ class Enhancer {
         let heightDistance = original.size.height - rect.height
 
         let step = CGFloat(num)/CGFloat(frameCount)
-        let crop = CGRectMake(rect.origin.x * step, rect.origin.y * step, original.size.width - (widthDistance * step), original.size.height - (heightDistance * step))
+        let crop = CGRect(x: rect.origin.x * step, y: rect.origin.y * step, width: original.size.width - (widthDistance * step), height: original.size.height - (heightDistance * step))
         
         UIGraphicsBeginImageContext(crop.size)
 
-        original.drawAtPoint(CGPointMake(-crop.origin.x, -crop.origin.y))
+        original.draw(at: CGPoint(x: -crop.origin.x, y: -crop.origin.y))
         
-        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        return self.imageToWidth(scaledImage, width: CGFloat(width))
+        return self.imageToWidth(image: scaledImage, width: CGFloat(width))
     }
     
     var globalHeight: CGFloat?
@@ -281,38 +280,37 @@ class Enhancer {
         
         if globalHeight == nil {
             globalHeight = image.size.height * scaleFactor
-            globalHeight = globalHeight! - (globalHeight! % 16)
+            globalHeight = globalHeight! - globalHeight!.truncatingRemainder(dividingBy: 16)
         }
 
         //var newWidth = oldWidth * scaleFactor
         
-        UIGraphicsBeginImageContext(CGSizeMake(width, globalHeight!))
-        image.drawInRect(CGRectMake(0, 0, width, globalHeight!))
+        UIGraphicsBeginImageContext(CGSize(width: width, height: globalHeight!))
+        image.draw(in: CGRect(x: 0, y: 0, width: width, height: globalHeight!))
         
         
         let waterMarkText = NSString(string: "Zoom, Enhance!")
         let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .Right
+        paragraph.alignment = .right
         
         let shadow = NSShadow()
         shadow.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.45)
         shadow.shadowBlurRadius = 0.3
-        shadow.shadowOffset = CGSizeMake(0, 0.5)
+        shadow.shadowOffset = CGSize(width: 0, height: 0.5)
         
         let waterMarkAttr = [
-            NSFontAttributeName: UIFont(name: "GTWalsheimPro-BoldOblique", size: 13)!,
-            NSForegroundColorAttributeName: UIColor(red: 1, green: 1, blue: 1, alpha: 0.42),
-            NSParagraphStyleAttributeName: paragraph,
-            NSShadowAttributeName: shadow
+            NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro-BoldOblique", size: 13)!,
+            NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 0.42),
+            NSAttributedString.Key.paragraphStyle: paragraph,
+            NSAttributedString.Key.shadow: shadow
         ]
         
-        waterMarkText.drawInRect(CGRectMake(0, globalHeight! - 20, width - 6, 20), withAttributes: waterMarkAttr)
+        waterMarkText.draw(in: CGRect(x: 0, y: globalHeight! - 20, width: width - 6, height: 20), withAttributes: waterMarkAttr)
         
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
-
+        return newImage!
     }
     
     

@@ -31,8 +31,8 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
         view.backgroundColor = kEnhanceDarkTealColor
 
         imageView = UIImageView(image: image)
-        scrollView = UIScrollView(frame: CGRectMake(0, 0, kScreenWidth, kScreenHeight))
-        scrollView.bounds = CGRectMake(0, 0, kScreenWidth, kScreenHeight)
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight))
+        scrollView.bounds = CGRect(x: 0, y: 0, width: kScreenWidth, height: kScreenHeight)
         scrollView.contentSize = imageView.frame.size
         scrollView.minimumZoomScale = kScreenWidth/imageView.frame.width
         scrollView.maximumZoomScale = 50.0
@@ -63,59 +63,59 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
         scrollFrame.size.width = size.width
         scrollFrame.size.height = size.height
 
-        let topBG = UIView(frame: CGRectMake(0, 0, size.width, scrollFrame.origin.y))
+        let topBG = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: scrollFrame.origin.y))
         topBG.backgroundColor = UIColor(red: 39.0/255.0, green: 50.0/255.0, blue: 48.0/255.0, alpha: 0.7)
         self.view.addSubview(topBG)
         
-        let bottomBG = UIView(frame: CGRectMake(0, scrollFrame.origin.y + scrollFrame.size.height, size.width, scrollFrame.origin.y))
+        let bottomBG = UIView(frame: CGRect(x: 0, y: scrollFrame.origin.y + scrollFrame.size.height, width: size.width, height: scrollFrame.origin.y))
         bottomBG.backgroundColor = UIColor(red: 39.0/255.0, green: 50.0/255.0, blue: 48.0/255.0, alpha: 0.7)
         self.view.addSubview(bottomBG)
         
         scrollView.frame = scrollFrame
         scrollView.addSubview(imageView)
         
-        backButton = UIButton(frame: CGRectMake((kScreenWidth - 55) / 2, kScreenHeight - 55 - 15, 55, 55))
-        backButton.setImage(UIImage(named: "WhiteClose")!, forState: .Normal)
-        backButton.backgroundColor = UIColor.whiteColor()
+        backButton = UIButton(frame: CGRect(x: (kScreenWidth - 55) / 2, y: kScreenHeight - 55 - 15, width: 55, height: 55))
+        backButton.setImage(UIImage(named: "WhiteClose")!, for: .normal)
+        backButton.backgroundColor = UIColor.white
         backButton.layer.cornerRadius = backButton.frame.width / 2
         backButton.layer.masksToBounds = true
-        backButton.addTarget(self, action: "back", forControlEvents: .TouchUpInside)
+        backButton.addTarget(self, action: #selector(back), for: .touchUpInside)
         
         view.addSubview(backButton)
         
         nextButton = UIButton(frame: backButton.frame)
-        nextButton.setImage(UIImage(named: "WhiteRightArrow")!, forState: .Normal)
-        nextButton.addTarget(self, action: "next", forControlEvents: .TouchUpInside)
-        nextButton.backgroundColor = UIColor.whiteColor()
+        nextButton.setImage(UIImage(named: "WhiteRightArrow")!, for: .normal)
+        nextButton.addTarget(self, action: #selector(getter: next), for: .touchUpInside)
+        nextButton.backgroundColor = UIColor.white
         nextButton.layer.cornerRadius = nextButton.frame.width / 2
         nextButton.layer.masksToBounds = true
-        nextButton.hidden = true
+        nextButton.isHidden = true
         nextButton.alpha = 0.0
         view.addSubview(nextButton)
         
         tutorialView = UIView(frame: self.view.frame)
         tutorialView.backgroundColor = UIColor(red: 39.0/255.0, green: 50.0/255.0, blue: 48.0/255.0, alpha: 0.96)
         let pinch = UIImageView(image: UIImage(named: "PinchToZoom"))
-        Utils.changeFrameY(pinch, value: (kScreenHeight - 250) / 2)
-        Utils.changeFrameX(pinch, value: (kScreenWidth - pinch.frame.width) / 2)
+        Utils.changeFrameY(view: pinch, value: (kScreenHeight - 250) / 2)
+        Utils.changeFrameX(view: pinch, value: (kScreenWidth - pinch.frame.width) / 2)
         tutorialView.addSubview(pinch)
-        tutorialView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "okTutorial"))
+        tutorialView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(okTutorial)))
         
         let width = kScreenWidth - 40
-        let tutText = UILabel(frame: CGRectMake(20, pinch.frame.origin.y + 20 + pinch.frame.height, width, 50))
+        let tutText = UILabel(frame: CGRect(x: 20, y: pinch.frame.origin.y + 20 + pinch.frame.height, width: width, height: 50))
         tutText.text = "Pinch and position this photo to enhance it."
         tutText.font = UIFont(name: "GTWalsheimPro", size: 22)
         tutText.adjustsFontSizeToFitWidth = true
         tutText.numberOfLines = 0
-        tutText.textAlignment = .Center
+        tutText.textAlignment = .center
         tutText.textColor = kEnhanceTealColor
         tutorialView.addSubview(tutText)
 
         shareView = UIView(frame: self.view.frame)
         shareView.backgroundColor = UIColor(red: 36.0/255.0, green: 43.0/255.0, blue: 41.0/255.0, alpha: 0.96)
-        shareView.hidden = true
+        shareView.isHidden = true
 
-        let successCheck = UIView(frame: CGRectMake(0, 0, 84, 84))
+        let successCheck = UIView(frame: CGRect(x: 0, y: 0, width: 84, height: 84))
         successCheck.backgroundColor = kEnhanceTealColor
         successCheck.layer.cornerRadius = 43
         successCheck.clipsToBounds = true
@@ -125,13 +125,13 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
         successImg.tag = 1
         shareView.addSubview(successImg)
         
-        Utils.centerView(successImg)
-        Utils.centerView(successCheck)
-        Utils.changeFrameY(successCheck, value: successCheck.frame.origin.y - 82)
-        Utils.changeFrameY(successImg, value: successImg.frame.origin.y - 82)
+        Utils.centerView(view: successImg)
+        Utils.centerView(view: successCheck)
+        Utils.changeFrameY(view: successCheck, value: successCheck.frame.origin.y - 82)
+        Utils.changeFrameY(view: successImg, value: successImg.frame.origin.y - 82)
         
-        let successText = UILabel(frame: CGRectMake(30, successCheck.frame.origin.y + 84 + 20, kScreenWidth - 60, 30))
-        successText.textAlignment = .Center
+        let successText = UILabel(frame: CGRect(x: 30, y: successCheck.frame.origin.y + 84 + 20, width: kScreenWidth - 60, height: 30))
+        successText.textAlignment = .center
         successText.text = "Saved!"
         successText.textColor = kEnhanceTealColor
         successText.numberOfLines = 0
@@ -141,16 +141,16 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 5
-        paragraphStyle.alignment = .Center
-        let desc = NSMutableAttributedString(string: "GIF", attributes: [NSFontAttributeName: UIFont(name: "GTWalsheimPro-BoldOblique", size: 17)!, NSForegroundColorAttributeName: kEnhanceTealColor])
-        desc.appendAttributedString(NSAttributedString(string: " copied to clipboard.\n", attributes: [NSFontAttributeName: UIFont(name: "GTWalsheimPro", size: 17)!, NSForegroundColorAttributeName: kEnhanceOpacTealColor]))
-        desc.appendAttributedString(NSAttributedString(string: "Video", attributes: [NSFontAttributeName: UIFont(name: "GTWalsheimPro-BoldOblique", size: 17)!, NSForegroundColorAttributeName: kEnhanceTealColor]))
-        desc.appendAttributedString(NSAttributedString(string: " saved to camera roll.", attributes: [NSFontAttributeName: UIFont(name: "GTWalsheimPro", size: 17)!, NSForegroundColorAttributeName: kEnhanceOpacTealColor]))
+        paragraphStyle.alignment = .center
+        let desc = NSMutableAttributedString(string: "GIF", attributes: [NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro-BoldOblique", size: 17)!, NSAttributedString.Key.foregroundColor: kEnhanceTealColor])
+        desc.append(NSAttributedString(string: " copied to clipboard.\n", attributes: [NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro", size: 17)!, NSAttributedString.Key.foregroundColor: kEnhanceOpacTealColor]))
+        desc.append(NSAttributedString(string: "Video", attributes: [NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro-BoldOblique", size: 17)!, NSAttributedString.Key.foregroundColor: kEnhanceTealColor]))
+        desc.append(NSAttributedString(string: " saved to camera roll.", attributes: [NSAttributedString.Key.font: UIFont(name: "GTWalsheimPro", size: 17)!, NSAttributedString.Key.foregroundColor: kEnhanceOpacTealColor]))
         
-        desc.addAttribute(NSParagraphStyleAttributeName, value: paragraphStyle, range: NSMakeRange(0, desc.length))
+        desc.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, desc.length))
         
-        let successDesc = UILabel(frame: CGRectMake(30, successText.frame.origin.y + 30 + 20, kScreenWidth - 60, 50))
-        successDesc.textAlignment = .Center
+        let successDesc = UILabel(frame: CGRect(x: 30, y: successText.frame.origin.y + 30 + 20, width: kScreenWidth - 60, height: 50))
+        successDesc.textAlignment = .center
         successDesc.attributedText = desc
         successDesc.numberOfLines = 0
         shareView.addSubview(successDesc)
@@ -158,80 +158,74 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
         
         
         
-        let newButton = UIButton(frame: CGRectMake(0, 0, 55, 55))
+        let newButton = UIButton(frame: CGRect(x: 0, y: 0, width: 55, height: 55))
         newButton.layer.cornerRadius = 27.5
         newButton.clipsToBounds = true
-        newButton.backgroundColor = UIColor.clearColor()
-        newButton.layer.borderColor = kEnhanceTealColor.CGColor
+        newButton.backgroundColor = UIColor.clear
+        newButton.layer.borderColor = kEnhanceTealColor.cgColor
         newButton.layer.borderWidth = 1.0
-        newButton.setImage(UIImage(named: "NewPlus"), forState: .Normal)
+        newButton.setImage(UIImage(named: "NewPlus"), for: .normal)
         shareView.addSubview(newButton)
         
-        Utils.changeFrameX(newButton, value: ((kScreenWidth - 180) / 2) + (180 - 55))
-        Utils.changeFrameY(newButton, value: kScreenHeight - 104 - 55)
+        Utils.changeFrameX(view: newButton, value: ((kScreenWidth - 180) / 2) + (180 - 55))
+        Utils.changeFrameY(view: newButton, value: kScreenHeight - 104 - 55)
         
-        let newText = UILabel(frame: CGRectMake(0, 0, 55, 18))
+        let newText = UILabel(frame: CGRect(x: 0, y: 0, width: 55, height: 18))
         newText.font = UIFont(name: "GTWalsheimPro", size: 15)
         newText.textColor = kEnhanceTealColor
-        newText.textAlignment = .Center
+        newText.textAlignment = .center
         newText.text = "New"
         shareView.addSubview(newText)
         
-        Utils.changeFrameX(newText, value: ((kScreenWidth - 180) / 2) + (180 - 55))
-        Utils.changeFrameY(newText, value: newButton.frame.origin.y + 55 + 9)
+        Utils.changeFrameX(view: newText, value: ((kScreenWidth - 180) / 2) + (180 - 55))
+        Utils.changeFrameY(view: newText, value: newButton.frame.origin.y + 55 + 9)
+        
+        newButton.addTarget(self, action: #selector(close), for: .touchUpInside)
 
-        
-        newButton.addTarget(self, action: "close", forControlEvents: .TouchUpInside)
-        
-        
-        let igButton = UIButton(frame: CGRectMake(0, 0, 55, 55))
+        let igButton = UIButton(frame: CGRect(x: 0, y: 0, width: 55, height: 55))
         igButton.layer.cornerRadius = 27.5
         igButton.clipsToBounds = true
-        igButton.backgroundColor = UIColor.clearColor()
-        igButton.layer.borderColor = kEnhanceTealColor.CGColor
+        igButton.backgroundColor = UIColor.clear
+        igButton.layer.borderColor = kEnhanceTealColor.cgColor
         igButton.layer.borderWidth = 1.0
-        igButton.setImage(UIImage(named: "Instagram"), forState: .Normal)
+        igButton.setImage(UIImage(named: "Instagram"), for: .normal)
         shareView.addSubview(igButton)
         
-        Utils.changeFrameX(igButton, value: (kScreenWidth - 180) / 2)
-        Utils.changeFrameY(igButton, value: kScreenHeight - 104 - 55)
+        Utils.changeFrameX(view: igButton, value: (kScreenWidth - 180) / 2)
+        Utils.changeFrameY(view: igButton, value: kScreenHeight - 104 - 55)
         
-        let igText = UILabel(frame: CGRectMake(0, 0, 69, 18))
+        let igText = UILabel(frame: CGRect(x: 0, y: 0, width: 69, height: 18))
         igText.font = UIFont(name: "GTWalsheimPro", size: 15)
         igText.textColor = kEnhanceTealColor
-        igText.textAlignment = .Center
+        igText.textAlignment = .center
         igText.text = "Instagram"
         shareView.addSubview(igText)
         
-        Utils.changeFrameX(igText, value: ((kScreenWidth - 180) / 2) - 7)
-        Utils.changeFrameY(igText, value: newButton.frame.origin.y + 55 + 9)
+        Utils.changeFrameX(view: igText, value: ((kScreenWidth - 180) / 2) - 7)
+        Utils.changeFrameY(view: igText, value: newButton.frame.origin.y + 55 + 9)
         
-        
-        igButton.addTarget(self, action: "instagram", forControlEvents: .TouchUpInside)
-        
-        
-        
-        
+        igButton.addTarget(self, action: #selector(instagram), for: .touchUpInside)
+
         self.view.addSubview(shareView)
         
-        if NSUserDefaults.standardUserDefaults().integerForKey("tutorial") < 3 {
+        if UserDefaults.standard.integer(forKey: "tutorial") < 3 {
             self.view.addSubview(tutorialView)
         }
     }
     
-    func instagram() {
+    @objc func instagram() {
         
         if let url = self.igURL {
-            UIApplication.sharedApplication().openURL(url)
+            UIApplication.shared.openURL(url)
         }
     }
 
-    func okTutorial() {
-        NSUserDefaults.standardUserDefaults().setInteger(NSUserDefaults.standardUserDefaults().integerForKey("tutorial")+1, forKey: "tutorial")
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+    @objc func okTutorial() {
+        UserDefaults.standard.set(UserDefaults.standard.integer(forKey: "tutorial")+1, forKey: "tutorial")
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.tutorialView.alpha = 0.0
             }) { (_) -> Void in
-                self.tutorialView.hidden = true
+                self.tutorialView.isHidden = true
         }
     }
     
@@ -240,84 +234,81 @@ class EnhanceViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func enableNextButton() {
-        nextButton.hidden = false
-        UIView.animateWithDuration(0.1) { () -> Void in
+        nextButton.isHidden = false
+        UIView.animate(withDuration: 0.1) { () -> Void in
             self.nextButton.alpha = 1.0
-            Utils.changeFrameX(self.backButton, value: (kScreenWidth - 75 - 110) / 2)
-            Utils.changeFrameX(self.nextButton, value: self.backButton.frame.origin.x + 55 + 75)
+            Utils.changeFrameX(view: self.backButton, value: (kScreenWidth - 75 - 110) / 2)
+            Utils.changeFrameX(view: self.nextButton, value: self.backButton.frame.origin.x + 55 + 75)
         }
     }
     
     func disableNextButton() {
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animate(withDuration: 0.1, animations: { () -> Void in
             self.nextButton.alpha = 0.0
-            self.nextButton.frame = CGRectMake((kScreenWidth - 55) / 2, kScreenHeight - 55 - 15, 55, 55)
+            self.nextButton.frame = CGRect(x: (kScreenWidth - 55) / 2, y: kScreenHeight - 55 - 15, width: 55, height: 55)
             self.backButton.frame = self.nextButton.frame
             }) { (success) -> Void in
-                self.nextButton.hidden = true
+                self.nextButton.isHidden = true
         }
     }
     
     func showResult() {
-        let v = UIImage.gifWithData(NSData(contentsOfURL: self.currentResult!.gifLocation!)!)
+        let v = UIImage.gifWithData(data: NSData(contentsOf: self.currentResult!.gifLocation!)!)
         
         previewView = UIImageView(image: v)
         
-        Utils.centerView(previewView!)
-        Utils.changeFrameY(previewView!, value: previewView!.frame.origin.y - 30)
+        Utils.centerView(view: previewView!)
+        Utils.changeFrameY(view: previewView!, value: previewView!.frame.origin.y - 30)
         self.view.insertSubview(previewView!, belowSubview: backButton)
 
         previewView!.alpha = 0.0
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.scrollView.alpha = 0.0
             self.previewView!.alpha = 1.0
             }) { (success) -> Void in
                 self.scrollView.alpha = 1.0
-                self.scrollView.hidden = true
+                self.scrollView.isHidden = true
 
         }
 
     }
     
     
-    var igURL: NSURL?
+    var igURL: URL?
     
     func next() {
         
         if previewView != nil {
             
-            Utils.sendAnalyticEvent("Enhancement-Complete")
+            Utils.sendAnalyticEvent(name: "Enhancement-Complete")
             self.currentResult!.copyToPasteboard()
-            self.currentResult!.saveVideo({ (url) -> Void in
+            self.currentResult!.saveVideo(callback: { (url) -> Void in
+
+                guard let url = url else { return }
  
                 let strURL = String(format: "instagram://library?AssetPath=%@&InstagramCaption=%@", url.absoluteString.escapeStr(), "#zoomenhance")
-                let url = NSURL(string: strURL)
+                let newUrl = URL(string: strURL)!
                 
-                print(url)
-                print(strURL)
-                
-                self.igURL = url
-                
-                
-                
+                self.igURL = newUrl
             })
                 
             shareView.alpha = 0.0
-            shareView.hidden = false
+            shareView.isHidden = false
             self.shareView.viewWithTag(1)!.alpha = 1.0
-            self.shareView.viewWithTag(1)!.transform = CGAffineTransformMakeScale(0.2, 0.2)
+            self.shareView.viewWithTag(1)!.transform = CGAffineTransform(scaleX: 0.2, y: 0.2)
 
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
+            UIView.animate(withDuration: 0.3, animations: { () -> Void in
                 self.shareView.alpha = 1.0
                 self.shareView.viewWithTag(1)!.alpha = 1.0
-                self.shareView.viewWithTag(1)!.transform = CGAffineTransformMakeScale(1.55, 1.55)
+                self.shareView.viewWithTag(1)!.transform = CGAffineTransform(scaleX: 1.55, y: 1.55)
 
                 }) { (success) -> Void in
                     
-                    UIView.animateWithDuration(0.22) { () -> Void in
-                        self.shareView.viewWithTag(1)!.transform = CGAffineTransformMakeScale(1.0, 1.0)
+                    UIView.animate(withDuration: 0.22) { () -> Void in
+                        self.shareView.viewWithTag(1)!.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
                     }
             }
+            return
 
             /*
 
@@ -332,69 +323,65 @@ if ([[UIApplication sharedApplication] canOpenURL:instagramURL])
 }
 
 */
-            
-            
-            return
         }
         
         nextButton.alpha = 0.5
-        nextButton.enabled = false
+        nextButton.isEnabled = false
         backButton.alpha = 0.5
-        backButton.enabled = false
+        backButton.isEnabled = false
         let e = Enhancer(image: image, finalRect: self.getFinalRect())
 
         e.process { (result) -> Void in
             self.currentResult = result
             self.nextButton.alpha = 1.0
-            self.nextButton.enabled = true
+            self.nextButton.isEnabled = true
             self.backButton.alpha = 1.0
-            self.backButton.enabled = true
-            self.nextButton.setImage(UIImage(named: "WhiteCheck"), forState: .Normal)
+            self.backButton.isEnabled = true
+            self.nextButton.setImage(UIImage(named: "WhiteCheck"), for: .normal)
             self.showResult()
         }
 
     }
     
     func show() {
-        UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Slide)
+        UIApplication.shared.setStatusBarHidden(true, with: .slide)
         self.view.alpha = 0.0
-        self.view.transform = CGAffineTransformMakeScale(0.33, 0.33)
-        UIView.animateWithDuration(0.2) { () -> Void in
+        self.view.transform = CGAffineTransform(scaleX: 0.33, y: 0.33)
+        UIView.animate(withDuration: 0.2) { () -> Void in
             self.view.alpha = 1.0
-            self.view.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }
     }
     
-    func close() {
-        UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Slide)
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+    @objc func close() {
+        UIApplication.shared.setStatusBarHidden(false, with: .slide)
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.view.alpha = 0.0
-            self.view.transform = CGAffineTransformMakeScale(0.33, 0.33)
+            self.view.transform = CGAffineTransform(scaleX: 0.33, y: 0.33)
             
             }) { (success) -> Void in
                 self.view.removeFromSuperview()
         }
     }
 
-    func back() {
+    @objc func back() {
         
-        if self.scrollView.hidden {
+        if self.scrollView.isHidden {
             previewView?.removeFromSuperview()
             previewView = nil
-            self.scrollView.hidden = false
+            self.scrollView.isHidden = false
             self.scrollView.setZoomScale((kScreenWidth - 50)/imageView.frame.width, animated: true)
-            self.nextButton.setImage(UIImage(named: "WhiteRightArrow"), forState: .Normal)
+            self.nextButton.setImage(UIImage(named: "WhiteRightArrow"), for: .normal)
         } else {
             self.close()
         }
     }
-    
-    
+
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
 
-    func scrollViewDidEndZooming(scrollView: UIScrollView, withView view: UIView?, atScale scale: CGFloat) {
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
         if scrollView.contentOffset.x > 0 || scrollView.contentOffset.y > 0 {
             self.enableNextButton()
         } else {
@@ -404,7 +391,7 @@ if ([[UIApplication sharedApplication] canOpenURL:instagramURL])
     
     func getFinalRect() -> CGRect {
         let scale = self.adjustedScale()
-        let f = CGRectMake(scrollView.contentOffset.x / scale, scrollView.contentOffset.y / scale, scrollView.frame.width / scale, scrollView.frame.height / scale)
+        let f = CGRect(x: scrollView.contentOffset.x / scale, y: scrollView.contentOffset.y / scale, width: scrollView.frame.width / scale, height: scrollView.frame.height / scale)
         
         return f
     }
