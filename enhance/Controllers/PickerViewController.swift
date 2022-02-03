@@ -116,7 +116,7 @@ class PickerViewController: UIViewController, UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath as IndexPath) as! PhotoCollectionViewCell
         
-        cell.asset = results![indexPath.row] as! PHAsset
+        cell.asset = results![indexPath.row]
         cell.updateCell()
 
         return cell

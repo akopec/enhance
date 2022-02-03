@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import ImageIO
-import MobileCoreServices
+import CoreServices
 import AssetsLibrary
 import AVFoundation
 import Photos
@@ -43,7 +43,7 @@ class EnhanceResult {
         
         if let _ = collection.firstObject {
             self.albumFound = true
-            assetCollection = collection.firstObject as! PHAssetCollection
+            assetCollection = collection.firstObject!
         } else {
             let _ = try? PHPhotoLibrary.shared().performChangesAndWait({
                 let createAlbumRequest : PHAssetCollectionChangeRequest = PHAssetCollectionChangeRequest.creationRequestForAssetCollection(withTitle: "ZoomEnhance")
